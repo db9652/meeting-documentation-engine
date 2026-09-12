@@ -140,10 +140,10 @@ To process any video and transcript, run:
 
 1. **`meeting_notes.md`**:
    Comprehensive reference document. Contains every detected slide with its active time window (`[MM:SS - MM:SS]`) and the complete, cleaned list of spoken dialogue points during that interval.
-2. **`executive_summary.html`**:
-   Interactive, modern, single-file HTML report. Formats the meeting into high-level thematic chapters with comparative matrices, key takeaways, and embedded images. Open directly in any browser or print to PDF.
-3. **`executive_summary.md`**:
-   The executive summary in portable GitHub-flavored Markdown for Notion, Obsidian, or Wiki pages.
+2. **`executive_summary_curated.html` & `.md`**:
+   In-depth, curated executive brief featuring comparative benchmark matrices, detailed curriculum breakdowns, and high-resolution representative slide images.
+3. **`executive_summary_ollama.html` & `.md`**:
+   Automated, chapter-by-chapter executive brief synthesized 100% locally by **Ollama (`llama3.2`)** on your GPU.
 4. **`metadata.json`**:
    Clean JSON manifest containing segment start/end seconds, relative image paths, and combined dialogue blocks. Acts as the ingestion source for Phase 2 semantic retrieval.
 
