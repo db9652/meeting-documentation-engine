@@ -3,9 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Executive Brief: English Language Proficiency Curricula in Southeast Asia</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>Executive Brief: International Conference Presentation: English Language Proficiency</title>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -20,495 +18,180 @@
       --highlight-bg: #f1f5f9;
       --radius: 12px;
     }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg-main: #0b1120;
-        --card-bg: #1e293b;
-        --text-main: #f8fafc;
-        --text-muted: #94a3b8;
-        --primary: #38bdf8;
-        --primary-soft: #0c4a6e33;
-        --border: #334155;
-        --accent: #38bdf8;
-        --highlight-bg: #0f172a;
-      }
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
-      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
       background-color: var(--bg-main);
       color: var(--text-main);
       line-height: 1.65;
       padding: 40px 20px;
     }
-
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-    }
-
+    .container { max-width: 920px; margin: 0 auto; }
     header {
       background: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 36px;
-      margin-bottom: 32px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+      padding: 32px;
+      margin-bottom: 24px;
     }
-
     .badge {
       display: inline-block;
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
       padding: 4px 10px;
       border-radius: 6px;
       background: var(--primary-soft);
       color: var(--primary);
       margin-bottom: 12px;
     }
-
-    h1 {
-      font-size: 2rem;
-      font-weight: 700;
-      line-height: 1.25;
-      margin-bottom: 12px;
-      letter-spacing: -0.02em;
-    }
-
-    .meta-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
-      margin-top: 24px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border);
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-
-    .meta-item strong {
-      color: var(--text-main);
-      display: block;
-      margin-bottom: 2px;
-    }
-
+    h1 { font-size: 1.85rem; font-weight: 700; margin-bottom: 8px; }
     .tldr-box {
       background: var(--primary-soft);
       border-left: 4px solid var(--primary);
-      padding: 24px;
+      padding: 20px;
       border-radius: 0 var(--radius) var(--radius) 0;
-      margin-bottom: 36px;
+      margin-bottom: 32px;
     }
-
-    .tldr-box h2 {
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 8px;
-    }
-
-    .tldr-box p {
-      font-size: 1rem;
-      color: var(--text-main);
-    }
-
-    .section-title {
-      font-size: 1.4rem;
-      font-weight: 700;
-      margin: 40px 0 20px;
-      letter-spacing: -0.01em;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 20px 0 36px;
-      background: var(--card-bg);
-      border-radius: var(--radius);
-      overflow: hidden;
-      border: 1px solid var(--border);
-      font-size: 0.92rem;
-    }
-
-    th, td {
-      padding: 14px 18px;
-      text-align: left;
-      border-bottom: 1px solid var(--border);
-    }
-
-    th {
-      background: var(--highlight-bg);
-      font-weight: 600;
-      color: var(--text-main);
-    }
-
-    tr:last-child td {
-      border-bottom: none;
-    }
-
     .chapter-card {
       background: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 28px;
-      margin-bottom: 32px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.02);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      padding: 24px;
+      margin-bottom: 28px;
     }
-
-    .chapter-card:hover {
-      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
-    }
-
     .chapter-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 16px;
-      flex-wrap: wrap;
-      gap: 10px;
+      margin-bottom: 14px;
     }
-
-    .chapter-title {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--text-main);
-    }
-
+    .chapter-title { font-size: 1.2rem; font-weight: 700; }
     .timestamp-badge {
       font-size: 0.82rem;
       font-family: monospace;
-      font-weight: 600;
-      padding: 4px 10px;
-      border-radius: 6px;
+      padding: 4px 8px;
       background: var(--highlight-bg);
-      color: var(--text-muted);
-      border: 1px solid var(--border);
+      border-radius: 6px;
     }
-
     .slide-wrapper {
-      margin: 18px 0;
+      margin: 16px 0;
       border-radius: 8px;
       overflow: hidden;
       border: 1px solid var(--border);
-      background: #000;
     }
-
-    .slide-wrapper img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .gist-content {
-      margin-top: 16px;
-      font-size: 0.98rem;
-    }
-
-    .gist-content p {
-      margin-bottom: 12px;
-    }
-
-    .gist-content ul {
-      padding-left: 22px;
-      margin-bottom: 14px;
-    }
-
-    .gist-content li {
-      margin-bottom: 6px;
-    }
-
+    .slide-wrapper img { width: 100%; display: block; }
     .takeaway-tag {
       background: var(--highlight-bg);
       border-left: 3px solid var(--accent);
-      padding: 12px 16px;
+      padding: 10px 14px;
+      margin-top: 12px;
       border-radius: 0 6px 6px 0;
-      font-size: 0.92rem;
-      margin-top: 14px;
-    }
-
-    .takeaway-tag strong {
-      color: var(--accent);
-    }
-
-    footer {
-      text-align: center;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      margin-top: 60px;
-      padding-top: 24px;
-      border-top: 1px solid var(--border);
-    }
-
-    @media print {
-      body {
-        background: #fff;
-        color: #000;
-        padding: 0;
-      }
-      .chapter-card, header {
-        box-shadow: none;
-        border: 1px solid #ccc;
-        page-break-inside: avoid;
-      }
     }
   </style>
 </head>
 <body>
-
 <div class="container">
   <header>
-    <span class="badge">Executive Brief</span>
-    <h1>English Language Proficiency Curricula in Southeast Asia</h1>
-    <p style="color: var(--text-muted); font-size: 1.05rem;">
-      Comparative Analysis of Curriculum Frameworks, Starting Grades, and Pedagogical Approaches across ASEAN
-    </p>
-
-    <div class="meta-grid">
-      <div class="meta-item">
-        <strong>Conference</strong>
-        International Conference in Innovation & Education
-      </div>
-      <div class="meta-item">
-        <strong>Institution</strong>
-        Open University of Thailand
-      </div>
-      <div class="meta-item">
-        <strong>Total Duration</strong>
-        10 Minutes, 6 Seconds
-      </div>
-      <div class="meta-item">
-        <strong>Source Recording</strong>
-        <code>sample_meeting.mp4</code>
-      </div>
-    </div>
+    <span class="badge">AI Executive Brief (Ollama: llama3.2:latest)</span>
+    <h1>International Conference Presentation: English Language Proficiency</h1>
+    <p style="color: var(--text-muted);">Duration: 10:06 • Total Slides: 45</p>
   </header>
-
   <div class="tldr-box">
-    <h2>Executive Overview (TL;DR)</h2>
-    <p>
-      This presentation analyzes English proficiency gaps among the 11 Southeast Asian nations based on the <strong>EF English Proficiency Index (EF EPI) 2021</strong>. While <strong>Singapore, the Philippines, and Malaysia</strong> maintain high or very high proficiency, peer nations remain in lower tiers. Applying <strong>Bradley's Effectiveness Model</strong>, the findings demonstrate that systemic proficiency is not determined by lesson hours alone, but by <strong>early immersion (Grade 1 start), multiliteracy curriculum design, experiential learning, and specialized pre-service teacher training</strong>.
-    </p>
+    <h2 style="font-size: 1.1rem; color: var(--primary); margin-bottom: 6px;">Executive Overview (TL;DR)</h2>
+    <p>Here is a concise 3-4 sentence Executive Summary:
+
+The study examined the English language proficiency curricula in Southeast Asian countries, analyzing data from the EF English Proficiency Index (EF EPI) 2021. The results showed that countries like Singapore, Philippines, and Malaysia have high English proficiency levels, while Vietnam and Indonesia have low proficiency levels. The study also found that countries starting English instruction at an earlier grade level and teaching more hours tend to achieve higher English proficiency levels. However, other factors such as colonial history and teacher expertise may also influence English proficiency outcomes.</p>
   </div>
-
-  <h2 class="section-title">Comparative Analysis Matrix</h2>
-  <table>
-    <thead>
-      <tr>
-        <th>Dimension</th>
-        <th>High-Proficiency Nations (Singapore, Philippines, Malaysia)</th>
-        <th>Emerging Nations (Vietnam, Laos, Cambodia, etc.)</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>Starting Grade</strong></td>
-        <td>Grade 1 (Early developmental immersion)</td>
-        <td>Grade 3 to Grade 4</td>
-      </tr>
-      <tr>
-        <td><strong>Curricular Model</strong></td>
-        <td>Bilingual immersion, Language Arts Multiliteracy, CLT</td>
-        <td>Form-focused, grammar rules, accuracy over fluency</td>
-      </tr>
-      <tr>
-        <td><strong>Teacher Preparation</strong></td>
-        <td>Dedicated university English specialization</td>
-        <td>Generalist elementary training without language specialization</td>
-      </tr>
-      <tr>
-        <td><strong>Classroom Approach</strong></td>
-        <td>Learner-centered, task-based, contextual usage</td>
-        <td>Rote memorization, teacher-led repetition</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <h2 class="section-title">Visual Chapter Walkthrough</h2>
-
-  <!-- Chapter 1 -->
+  
   <div class="chapter-card">
     <div class="chapter-header">
-      <div class="chapter-title">1. Research Questions & Problem Statement</div>
-      <div class="timestamp-badge">00:00 - 01:57</div>
+      <div class="chapter-title">1. Overview of English Language Proficiency in Southeast Asian Countries</div>
+      <div class="timestamp-badge">00:00 - 03:06</div>
     </div>
     <div class="slide-wrapper">
-      <img src="frames/sample_meeting_frame_004_01m32s_to_01m57s.png" alt="Slide 1: Research Questions" loading="lazy" />
+      <img src="frames/sample_meeting_frame_008_02m37s_to_03m06s.png" alt="Overview of English Language Proficiency in Southeast Asian Countries" loading="lazy" />
     </div>
     <div class="gist-content">
-      <p>
-        English proficiency delivers significant regional economic and educational advantages, yet EF EPI benchmarks reveal sharp polarization across Southeast Asia. The study formulates three primary research inquiries:
-      </p>
-      <ul>
-        <li>How are Southeast Asian countries distributed across EF EPI 2021 proficiency bands?</li>
-        <li>What structural differences exist in their national English curricula?</li>
-        <li>Which specific curricular features systematically drive high English proficiency?</li>
-      </ul>
+      <ul><li>The EF English Proficiency Index (EF EPI) 2021 provides a framework for measuring English language proficiency in Southeast Asian countries.</li><li>The study aims to describe the English language proficiency level of Southeast Asian countries based on the EF EPI 2021 and identify significant features of curricula that contribute to high English proficiency levels.</li><li>The researchers examined the curricular implementation of five Southeast Asian countries over the past five years, using the Effectiveness model for curriculum development indicators.</li></ul>
       <div class="takeaway-tag">
-        <strong>Key Takeaway:</strong> The research sets out to link national curriculum architecture directly to standardized language outcomes.
+        <strong>Key Takeaway:</strong> **Southeast Asian countries with high English proficiency levels require curriculum adjustments to address gaps in implementation and ensure effective teaching methods are adopted.**
       </div>
     </div>
   </div>
-
-  <!-- Chapter 2 -->
   <div class="chapter-card">
     <div class="chapter-header">
-      <div class="chapter-title">2. Theoretical Framework (Bradley's Model)</div>
-      <div class="timestamp-badge">01:57 - 02:37</div>
+      <div class="chapter-title">2. English Education in Southeast Asia: A Comparative Analysis</div>
+      <div class="timestamp-badge">03:06 - 04:59</div>
     </div>
     <div class="slide-wrapper">
-      <img src="frames/sample_meeting_frame_006_02m02s_to_02m32s.png" alt="Slide 2: Theoretical Model" loading="lazy" />
+      <img src="frames/sample_meeting_frame_015_04m54s_to_04m59s.png" alt="English Education in Southeast Asia: A Comparative Analysis" loading="lazy" />
     </div>
     <div class="gist-content">
-      <p>
-        The research methodology relies on <strong>Bradley's Effectiveness Model for Curriculum Development</strong>, evaluating effectiveness across four interconnected pillars:
-      </p>
-      <ul>
-        <li><strong>Curriculum Planning:</strong> Statutory start ages, syllabi, and learning targets.</li>
-        <li><strong>Pre-Service Training:</strong> Teacher education standards and specialization tracks.</li>
-        <li><strong>Instructional Implementation:</strong> In-class pedagogical methodologies and resources.</li>
-        <li><strong>Outcomes:</strong> Standardized diagnostic performance via EF EPI benchmarks.</li>
-      </ul>
+      <ul><li>Eleven Southeast Asian countries were analyzed for their English curricula implementation.</li><li>Four countries started English instruction at grade 7 (Indonesia, Cambodia, Laos, and Timor-Leste), while seven countries started at grade 1 (Singapore, the Philippines, Malaysia, Myanmar, Thailand, Brunei, and Vietnam).</li><li>Countries that started English instruction at an earlier level generally had higher teaching hours, but this was not the case for Thailand and Myanmar, which achieved lower proficiency levels despite earlier start.</li></ul>
       <div class="takeaway-tag">
-        <strong>Key Takeaway:</strong> Curricular success is evaluated end-to-end—from policymaking to classroom instruction.
+        <strong>Key Takeaway:</strong> **Early start of English instruction does not guarantee higher English proficiency, and other factors such as colonial history, teacher expertise, and language acquisition difficulties should be considered when evaluating English education in Southeast Asia.**
       </div>
     </div>
   </div>
-
-  <!-- Chapter 3 -->
   <div class="chapter-card">
     <div class="chapter-header">
-      <div class="chapter-title">3. Regional EF EPI 2021 Benchmark Findings</div>
-      <div class="timestamp-badge">02:37 - 03:06</div>
+      <div class="chapter-title">3. Bilingual Education Systems in Southeast Asia</div>
+      <div class="timestamp-badge">04:59 - 06:25</div>
     </div>
     <div class="slide-wrapper">
-      <img src="frames/sample_meeting_frame_008_02m37s_to_03m06s.png" alt="Slide 3: Rankings Table" loading="lazy" />
+      <img src="frames/sample_meeting_frame_022_06m20s_to_06m25s.png" alt="Bilingual Education Systems in Southeast Asia" loading="lazy" />
     </div>
     <div class="gist-content">
-      <p>
-        The presentation reveals the 2021 regional performance landscape:
-      </p>
-      <ul>
-        <li><strong>Top Tier:</strong> <strong>Singapore</strong> leads Southeast Asia and ranks #4 globally (Score: 84). The <strong>Philippines</strong> (2nd) and <strong>Malaysia</strong> (3rd) hold solid High Proficiency standings.</li>
-        <li><strong>Mid to Lower Tiers:</strong> Indonesia, Vietnam, and Myanmar occupy moderate-to-low bands, while Thailand, Cambodia, and Laos placed in the lower tiers.</li>
-      </ul>
+      <ul><li>The region has implemented various bilingual education systems, with Singapore, Thailand, and Brunei adopting a bilingual approach, while the Philippines adopted a mother tongue-based multilingual education system.</li><li>Malaysia, Indonesia, Cambodia, and Vietnam have applied the communicative language teaching approach, with Indonesia also incorporating learner-centered and experience-based instruction.</li><li>The Philippines' educational system focuses on limiting the number of words to be learned in each grade, with Vietnam's system emphasizing a more limited vocabulary.</li></ul>
       <div class="takeaway-tag">
-        <strong>Key Takeaway:</strong> A steep performance divide separates the top three ASEAN states from the remaining regional peers.
+        <strong>Key Takeaway:</strong> **The effective implementation of bilingual education systems in Southeast Asia requires a tailored approach to language instruction, taking into account the unique cultural and linguistic contexts of each country.**
       </div>
     </div>
   </div>
-
-  <!-- Chapter 4 -->
   <div class="chapter-card">
     <div class="chapter-header">
-      <div class="chapter-title">4. Curriculum Structure: Starting Grades & Contact Hours</div>
-      <div class="timestamp-badge">03:06 - 04:33</div>
+      <div class="chapter-title">4. Effective Language Education Strategies</div>
+      <div class="timestamp-badge">06:25 - 07:58</div>
     </div>
     <div class="slide-wrapper">
-      <img src="frames/sample_meeting_frame_012_03m25s_to_04m28s.png" alt="Slide 4: Curriculum Comparison Table" loading="lazy" />
+      <img src="frames/sample_meeting_frame_030_07m53s_to_07m58s.png" alt="Effective Language Education Strategies" loading="lazy" />
     </div>
     <div class="gist-content">
-      <p>
-        Analyzing structural education policies across all 11 ASEAN nations highlighted decisive patterns:
-      </p>
-      <ul>
-        <li><strong>Start Level:</strong> 7 nations initiate English instruction in <strong>Grade 1</strong> (Singapore, Philippines, Malaysia, Brunei, Myanmar, Thailand, Cambodia). Vietnam starts in <strong>Grade 3</strong>, and Laos in <strong>Grade 4</strong>.</li>
-        <li><strong>Hour Allocation Paradox:</strong> Sheer classroom hours do not guarantee high proficiency. Thailand allocates substantial hours early, but outcomes are constrained by instructional quality and teacher preparation.</li>
-        <li><strong>Teacher Training Bottleneck:</strong> In lower-performing systems, student teachers receive generalist training without dedicated subject-matter expertise in English language acquisition.</li>
-      </ul>
+      <ul><li>The English curriculum in Myanmar is based on the Common European Framework of Reference for Languages, ensuring context-based English language instruction.</li><li>The bilingual education system in Singapore has shown a significant increase in residents speaking both English and other languages, from 13.5% in 2000 to 48.3% in 2020.</li><li>The Philippines' Language and Arts Multiliteracy curriculum aligns with John PJ's development learning theory, using a spiral progression approach to develop children's language skills.</li></ul>
       <div class="takeaway-tag">
-        <strong>Key Takeaway:</strong> Grade 1 introduction is essential, but must be paired with specialized teacher training to generate results.
+        <strong>Key Takeaway:</strong> **Implementing context-based language instruction and multiliteracy approaches can lead to significant improvements in English language proficiency and overall student development.**
       </div>
     </div>
   </div>
-
-  <!-- Chapter 5 -->
   <div class="chapter-card">
     <div class="chapter-header">
-      <div class="chapter-title">5. Pedagogical Frameworks: Immersion vs. Grammar Focus</div>
-      <div class="timestamp-badge">04:33 - 06:45</div>
+      <div class="chapter-title">5. Comparative Analysis of English Education in Southeast Asian Countries</div>
+      <div class="timestamp-badge">07:58 - 09:20</div>
     </div>
     <div class="slide-wrapper">
-      <img src="frames/sample_meeting_frame_021_06m04s_to_06m20s.png" alt="Slide 5: Teaching Approaches" loading="lazy" />
+      <img src="frames/sample_meeting_frame_038_09m09s_to_09m20s.png" alt="Comparative Analysis of English Education in Southeast Asian Countries" loading="lazy" />
     </div>
     <div class="gist-content">
-      <p>
-        Instructional paradigms differ substantially across regional education ministries:
-      </p>
-      <ul>
-        <li><strong>Bilingual Immersion:</strong> Singapore and Brunei integrate English as the core instructional medium across academic subjects.</li>
-        <li><strong>Language Arts Multiliteracies:</strong> The Philippines implements K-12 Mother Tongue-Based Multilingual Education (MTB-MLE) combined with multiliteracies curricula.</li>
-        <li><strong>Communicative Language Teaching (CLT):</strong> Indonesia and Laos adopt learner-centered, experiential models.</li>
-        <li><strong>Grammar & Accuracy Emphasis:</strong> Vietnam's curriculum historically prioritized vocabulary lists, grammatical precision, and structural rules over conversational fluency.</li>
-      </ul>
+      <ul><li>Southeast Asian countries share a common practice of revising their English curricula for continuous development and improvement.</li><li>The number of teaching hours is positively correlated with students' proficiency levels, with earlier English instruction starting at a higher proficiency level.</li><li>Factors such as colonial history and teachers' expertise can influence English education curricula, which can be studied and potentially adopted by other countries.</li></ul>
       <div class="takeaway-tag">
-        <strong>Key Takeaway:</strong> Immersive and multiliteracy curricula consistently produce superior real-world language outcomes compared to grammar-memorization models.
+        <strong>Key Takeaway:</strong> **Continuously revising and improving English curricula can lead to better student outcomes, and adopting best practices from other countries can help enhance English education in Southeast Asia.**
       </div>
     </div>
   </div>
-
-  <!-- Chapter 6 -->
   <div class="chapter-card">
     <div class="chapter-header">
-      <div class="chapter-title">6. Key Drivers of Curriculum Success</div>
-      <div class="timestamp-badge">06:45 - 08:23</div>
+      <div class="chapter-title">6. Recommendations for English Language Education</div>
+      <div class="timestamp-badge">09:20 - 10:06</div>
     </div>
     <div class="slide-wrapper">
-      <img src="frames/sample_meeting_frame_034_08m13s_to_08m18s.png" alt="Slide 6: Significant Features" loading="lazy" />
+      <img src="frames/sample_meeting_frame_045_09m59s_to_10m06s.png" alt="Recommendations for English Language Education" loading="lazy" />
     </div>
     <div class="gist-content">
-      <p>
-        The study synthesizes four recurring features present in high-performing systems:
-      </p>
-      <ul>
-        <li><strong>Early Bilingual Immersion:</strong> Introducing English from the onset of primary education with practical daily usage.</li>
-        <li><strong>Contextual & Experiential Learning:</strong> Replacing static memorization with interactive language tasks.</li>
-        <li><strong>Language Arts & Literacy Syllabi:</strong> Fostering reading comprehension and critical thinking alongside speech.</li>
-        <li><strong>Continuous Teacher Upskilling:</strong> Systematic in-service development programs for practicing educators.</li>
-      </ul>
+      <ul><li>Southeast Asian countries are encouraged to participate in the EF Epi program for continuous monitoring and improvement.</li><li>Countries with lower proficiency may recognize and adopt pictures of their existing curricula that can be improved.</li><li>Countries with lower proficiency may consider adopting significant features of English curricula from high-performing Southeast Asian countries.</li></ul>
       <div class="takeaway-tag">
-        <strong>Key Takeaway:</strong> Sustained language proficiency demands aligning early immersion, modern pedagogy, and continuous teacher development.
+        <strong>Key Takeaway:</strong> **Participating in the EF Epi program and adopting best practices from high-performing countries can significantly improve English language education in Southeast Asian countries.**
       </div>
     </div>
   </div>
-
-  <!-- Chapter 7 -->
-  <div class="chapter-card">
-    <div class="chapter-header">
-      <div class="chapter-title">7. Recommendations for Educational Policymakers</div>
-      <div class="timestamp-badge">08:23 - 10:06</div>
-    </div>
-    <div class="slide-wrapper">
-      <img src="frames/sample_meeting_frame_043_09m45s_to_09m54s.png" alt="Slide 7: Policy Recommendations" loading="lazy" />
-    </div>
-    <div class="gist-content">
-      <p>
-        The session concludes with strategic recommendations for regional education leadership:
-      </p>
-      <ul>
-        <li><strong>Continuous Benchmark Tracking:</strong> Regularly participate in EF EPI and international diagnostics to monitor curriculum efficacy.</li>
-        <li><strong>Adoption of Regional Best Practices:</strong> Lower-tier countries should pilot bilingual immersion and communicative methods proven in peer nations.</li>
-        <li><strong>Teacher Education Overhaul:</strong> Establish specialized English education tracks in university teacher-training colleges.</li>
-      </ul>
-      <div class="takeaway-tag">
-        <strong>Key Takeaway:</strong> Regional cross-learning offers a clear pathway to closing the English proficiency divide in Southeast Asia.
-      </div>
-    </div>
-  </div>
-
-  <footer>
-    Generated by Automated Meeting Documentation Engine • Output files: <code>executive_summary.html</code> & <code>executive_summary.md</code>
-  </footer>
 </div>
-
 </body>
 </html>

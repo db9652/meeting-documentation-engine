@@ -156,3 +156,21 @@ With Phase 1 complete and `metadata.json` generated:
 - Connect a local text LLM (**Ollama** with `llama3.2` or `qwen2.5`).
 - Query: *"What was discussed regarding regional teacher training?"*
 - Response: Answers using spoken dialogue while embedding the exact screenshot and timestamp for instant visual verification.
+
+---
+
+## 🤖 Automated Executive Summarization via Ollama
+
+You can automatically generate the chapter-by-chapter Executive Brief (`executive_summary.html` and `.md`) using a local LLM served via **Ollama**:
+
+```bash
+./venv/bin/python3 generate_summary.py \
+  --metadata output/sample_meeting/metadata.json \
+  --model llama3.2:latest \
+  --chapters 6
+```
+
+### Recommended Models for 4GB VRAM:
+* **`llama3.2:3b` (Recommended):** Uses ~2.2 GB VRAM (fits entirely within 4GB VRAM on RTX 3050), 128k context length, fast generation (~60 tokens/sec), and exceptional synthesis.
+* **`qwen2.5:3b`:** Uses ~2.0 GB VRAM, great structured output.
+* **`phi3.5:3.8b`:** Uses ~2.8 GB VRAM, strong reasoning capabilities.
