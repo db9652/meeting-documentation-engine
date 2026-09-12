@@ -58,10 +58,13 @@ flowchart TD
 ```text
 meeting_Documentation/
 ├── process_meeting.py        # Core Phase 1 extraction and documentation engine
+├── generate_summary.py       # Pure Dynamic CV filtering & Ollama synthesis engine
 ├── setup.sh                  # One-click environment installer & setup script
+├── setup.py                  # Standard Python package installer
 ├── requirements.txt          # Python library dependencies
 ├── README.md                 # Project documentation & usage guide
-├── Project_Blueprint_and_Implementation_Plan.md # In-depth technical architecture
+├── DEVELOPMENT_HISTORY_AND_ARCHITECTURE.md # Full chronological engineering log & fixes
+├── Project_Blueprint_and_Implementation_Plan.md # Initial project blueprint
 │
 ├── sample/                   # Test sample data
 │   ├── sample_meeting.mp4    # 10-minute conference presentation recording
