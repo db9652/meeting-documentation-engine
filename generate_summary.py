@@ -1,23 +1,23 @@
 #!/usr/bin/env python3
 """
-Automated Executive Summary Generator using Local Ollama (Phase 1 Extension)
-Reads metadata.json, automatically detects and eliminates blank/empty slides and
-partial animation builds (e.g. slides 07, 10, 19, 34, 40), ensures critical data slides
-like Table 1 (Slide 09) and Table 2 (Slide 12) are fully preserved, and generates
-data-rich executive summaries in both Markdown and HTML.
+Automated Executive Summary Generator using Pure Dynamic Computer Vision + Local Ollama
+1. Computer Vision (Laplacian): Detects and eliminates blank/empty slides.
+2. Computer Vision (Additive Build & Directional Edge Containment): Automatically detects and
+   collapses partial-build slides (e.g. Slide 08 into Table 1 Slide 09, Slide 10/11 into Table 2 Slide 12,
+   and Slide 40/41/42 into complete Recommendations Slide 43) dynamically on ANY meeting video.
+3. Speech Accumulator: Carries forward all spoken dialogue from partial/blank slides into the fully-filled slide.
+4. Local LLM Synthesizer (Ollama): Generates structured gists, takeaways, and TL;DR using llama3.2.
 """
 
 import os
-import glob
 import json
 import cv2
 import numpy as np
 import argparse
 import urllib.request
 import urllib.error
-from PIL import Image
 
-def query_ollama(prompt: str, model: str = "llama3.2:latest", host: str = "http://localhost:11434") -> str:
+def query_ollama(prompt: str, model: str = "llama3.2:latest", host: str = "http://localhost:11434", json_mode: bool = False) -> str:
     """Sends a generation request to the local Ollama instance."""
     url = f"{host}/api/generate"
     payload = {
@@ -25,10 +25,13 @@ def query_ollama(prompt: str, model: str = "llama3.2:latest", host: str = "http:
         "prompt": prompt,
         "stream": False,
         "options": {
-            "temperature": 0.2,
+            "temperature": 0.1 if json_mode else 0.2,
             "num_ctx": 8192
         }
     }
+    if json_mode:
+        payload["format"] = "json"
+
     data = json.dumps(payload).encode("utf-8")
     req = urllib.request.Request(url, data=data, headers={"Content-Type": "application/json"})
     
@@ -41,62 +44,194 @@ def query_ollama(prompt: str, model: str = "llama3.2:latest", host: str = "http:
             f"Could not connect to Ollama at {host}. Is Ollama running? Run: 'ollama serve'. Error: {e}"
         )
 
-def get_informative_meeting_slides(sections, frames_dir: str, skip_indices=None):
-    """
-    Intelligently filters out:
-    1. Empty/blank slide backgrounds (Laplacian variance < 1050 or designated blank slides).
-    2. Partial animation builds (slides that are partial duplicates of the subsequent complete slide).
-    Ensures all spoken dialogue is preserved and accumulated into the complete slide.
-    """
-    if skip_indices is None:
-        skip_indices = {7, 10, 11, 13, 15, 17, 18, 19, 20, 22, 24, 26, 28, 30, 32, 33, 34, 35, 37, 39, 40, 41, 42, 44}
+def is_blank_slide_cv(img_path: str, threshold: float = 1000.0) -> bool:
+    """Detects whether an image is a blank/empty background slide or transition wipe using Laplacian variance."""
+    if not os.path.exists(img_path):
+        return True
+    img = cv2.imread(img_path)
+    if img is None:
+        return True
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    lap_var = cv2.Laplacian(gray, cv2.CV_64F).var()
+    return lap_var < threshold
 
-    # Complete target slides for sample_meeting:
-    # 1 (Title), 2 (Background), 4 (Questions), 6 (Bradley Model),
-    # 8 (EF EPI Overview), 9 (Table 1 Contents), 12 (Table 2 Matrix),
-    # 14 (Colonial Context), 16 (Pre-service Teacher Training),
-    # 21 (Teaching Approaches: Bilingual/CLT), 23 (Vocabulary/Myanmar CEFR),
-    # 25 (Feature 1: Bilingual), 27 (Feature 2: Multiliteracies),
-    # 29 (Feature 3: Malaysia), 31 (Feature 4: Early Instruction),
-    # 36 (Conclusions: Commonalities), 38 (Conclusions: Features to Adopt),
-    # 43 (Complete Policy Recommendations), 45 (Closing)
-    target_indices = {1, 2, 4, 6, 8, 9, 12, 14, 16, 21, 23, 25, 27, 29, 31, 36, 38, 43, 45}
+def get_slide_content_edges(img_path: str):
+    """Extracts the central presentation canvas (excluding webcams/player chrome) and computes Canny edges."""
+    img = cv2.imread(img_path)
+    if img is None:
+        return None
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    h, w = gray.shape
+    # Central content ROI: isolates the slide canvas from conference UI, participant thumbnails, and controls
+    roi = gray[int(h*0.12):int(h*0.88), int(w*0.08):int(w*0.82)]
+    return cv2.Canny(roi, 50, 150)
 
-    groups = []
-    current_group = []
+def is_partial_build_cv(edges_a, edges_b):
+    """
+    Pure Computer Vision test to determine if edges_a is a partial build or superseded version of edges_b.
+    1. Directional Edge Containment: Dilates edges_b with a 5x5 kernel (+/- 2 pixels) to accommodate
+       compression artifacts and sub-pixel text rendering shifts.
+    2. Additive Build: If >= 70% of edges_a are contained inside edges_b AND edges_b contains
+       at least 20% more visual edge content (e.g., Table rows added or bullet points revealed).
+    3. Completion / Near-Identical: If >= 90% of edges_a are contained in edges_b and edges_b is
+       the settled, complete state.
+    """
+    cnt_a = np.sum(edges_a > 0)
+    cnt_b = np.sum(edges_b > 0)
+    if cnt_a == 0:
+        return True, 1.0, "empty_canvas"
+    
+    kernel = np.ones((5,5), np.uint8)
+    edges_b_dil = cv2.dilate(edges_b, kernel)
+    containment = np.sum((edges_a > 0) & (edges_b_dil > 0)) / cnt_a
+    
+    # Case 1: Additive build (e.g. Table revealed or bullets appended)
+    if containment >= 0.70 and cnt_b >= 1.20 * cnt_a:
+        return True, containment, f"additive_build (edges {cnt_a} -> {cnt_b})"
+        
+    # Case 2: Settled completion / near-identical transition
+    if containment >= 0.90 and cnt_b >= 0.85 * cnt_a:
+        return True, containment, f"completion (edges {cnt_a} -> {cnt_b})"
+        
+    return False, containment, "distinct"
+
+def select_fully_filled_slides(sections, base_dir: str, filter_mode: str = "cv", model: str = "llama3.2:latest") -> list:
+    """
+    Universal Dynamic Slide Filter:
+    1. Stage 1 (CV Blank Filter): Drops empty canvas / transition frames via Laplacian edge variance.
+    2. Stage 2 (CV Additive Build Filter): Evaluates consecutive non-blank slides. If slide A's visual
+       content is a subset of a subsequent slide B, slide A is collapsed into slide B.
+    3. Optional Hybrid Mode: If filter_mode == 'hybrid', local LLM provides an additional semantic review
+       using generic presentation rules without any hardcoded slide numbers.
+    4. Dialogue & Timing Accumulator: Automatically merges dialogue and extends timestamps from
+       eliminated/merged slides into the final fully-filled slide so no spoken dialogue is lost.
+    """
+    # Step 1: Filter out blank frames
+    non_blank_sections = []
+    accumulated_blank_text = ""
 
     for s in sections:
-        current_group.append(s)
-        if s["slide_index"] in target_indices:
-            groups.append((s, current_group))
-            current_group = []
+        img_path = os.path.join(base_dir, s["image_relative_path"])
+        if is_blank_slide_cv(img_path):
+            accumulated_blank_text += " " + s.get("dialogue_text", "")
+        else:
+            if accumulated_blank_text:
+                s["dialogue_text"] = (accumulated_blank_text + " " + s.get("dialogue_text", "")).strip()
+                accumulated_blank_text = ""
+            non_blank_sections.append(s)
 
-    # If any trailing slides exist
-    if current_group and groups:
-        groups[-1][1].extend(current_group)
+    if accumulated_blank_text and non_blank_sections:
+        non_blank_sections[-1]["dialogue_text"] = (
+            non_blank_sections[-1].get("dialogue_text", "") + " " + accumulated_blank_text
+        ).strip()
 
-    informative_slides = []
-    for rep_slide, group_items in groups:
-        combined_text = " ".join([item["dialogue_text"] for item in group_items if item.get("dialogue_text")]).strip()
-        start_t = group_items[0]["start_time_str"]
-        end_t = rep_slide["end_time_str"]
+    print(f"   • CV Blank Filter: Retained {len(non_blank_sections)} non-blank candidate slides from {len(sections)} raw frames.")
 
-        informative_slides.append({
-            "slide_index": rep_slide["slide_index"],
-            "start_time": start_t,
-            "end_time": end_t,
-            "filename": rep_slide["image_filename"],
-            "image_relative_path": rep_slide["image_relative_path"],
-            "dialogue": combined_text,
-            "duration_sec": round(rep_slide.get("end_sec", 0) - group_items[0].get("start_sec", 0), 1)
-        })
+    # Step 2: Computer Vision Additive Build Detection
+    edge_cache = {}
+    for s in non_blank_sections:
+        img_path = os.path.join(base_dir, s["image_relative_path"])
+        edge_cache[s["slide_index"]] = get_slide_content_edges(img_path)
 
-    return informative_slides
+    cv_keep_indices = set()
+    i = 0
+    while i < len(non_blank_sections):
+        curr = non_blank_sections[i]
+        c_idx = curr["slide_index"]
+        c_edges = edge_cache[c_idx]
+        
+        superseded = False
+        # Look ahead up to 2 slides within non-blank sequence, or within 60s
+        for lookahead in range(1, min(3, len(non_blank_sections) - i)):
+            nxt = non_blank_sections[i + lookahead]
+            time_diff = nxt.get("start_sec", 0) - curr.get("start_sec", 0)
+            if time_diff > 60:
+                continue
+            n_idx = nxt["slide_index"]
+            n_edges = edge_cache[n_idx]
+            
+            is_sub, cont, reason = is_partial_build_cv(c_edges, n_edges)
+            if is_sub:
+                print(f"   • [CV Collapse] Slide {c_idx:02d} superseded by Slide {n_idx:02d} (containment={cont*100:.1f}%, {reason})")
+                superseded = True
+                break
+                
+        if not superseded:
+            cv_keep_indices.add(c_idx)
+        i += 1
+
+    print(f"   • CV Build Collapser: Filtered down to {len(cv_keep_indices)} fully-filled slides.")
+
+    # Always retain first and last slide
+    if non_blank_sections:
+        cv_keep_indices.add(non_blank_sections[0]["slide_index"])
+        cv_keep_indices.add(non_blank_sections[-1]["slide_index"])
+
+    keep_indices = cv_keep_indices
+
+    # Step 3: Optional Hybrid verification with Ollama
+    if filter_mode == "hybrid":
+        print("   • Hybrid Verification: Querying Ollama for semantic validation...")
+        slide_desc = []
+        for s in non_blank_sections:
+            if s["slide_index"] in cv_keep_indices:
+                text = s.get("dialogue_text", "")[:100] if s.get("dialogue_text") else "(Visual presentation)"
+                slide_desc.append(f"Slide {s['slide_index']:02d} [{s['start_time_str']} - {s['end_time_str']}]: {text}")
+        
+        timeline_text = "\n".join(slide_desc)
+        hybrid_prompt = f"""You are an executive meeting documentation assistant.
+Review the following candidate slides and timestamps. Verify which slides contain distinct, meaningful topics or final complete tables.
+Return a JSON object with the list of slide numbers to keep.
+Example format: {{"keep_slides": [1, 3, 5, 9]}}
+
+Slide Timeline:
+{timeline_text}
+"""
+        try:
+            llm_res = query_ollama(hybrid_prompt, model=model, json_mode=True)
+            llm_json = json.loads(llm_res)
+            llm_slides = set(llm_json.get("keep_slides", []))
+            if llm_slides:
+                keep_indices = keep_indices.intersection(llm_slides)
+                keep_indices.add(non_blank_sections[0]["slide_index"])
+                keep_indices.add(non_blank_sections[-1]["slide_index"])
+        except Exception as e:
+            print(f"   ⚠️  Warning: Hybrid LLM review skipped ({e}). Using CV filter.")
+
+    # Step 4: Cluster dialogue and consolidate timestamps into the selected fully-filled slides
+    final_slides = []
+    current_cluster = []
+
+    for s in non_blank_sections:
+        current_cluster.append(s)
+        if s["slide_index"] in keep_indices:
+            combined_dialogue = " ".join([item.get("dialogue_text", "") for item in current_cluster if item.get("dialogue_text")]).strip()
+            start_time = current_cluster[0]["start_time_str"]
+            end_time = s["end_time_str"]
+
+            final_slides.append({
+                "slide_index": s["slide_index"],
+                "start_time": start_time,
+                "end_time": end_time,
+                "filename": s["image_filename"],
+                "image_relative_path": s["image_relative_path"],
+                "dialogue": combined_dialogue,
+                "duration_sec": round(s.get("end_sec", 0) - current_cluster[0].get("start_sec", 0), 1)
+            })
+            current_cluster = []
+
+    if current_cluster and final_slides:
+        leftover_text = " ".join([item.get("dialogue_text", "") for item in current_cluster if item.get("dialogue_text")]).strip()
+        if leftover_text:
+            final_slides[-1]["dialogue"] = (final_slides[-1]["dialogue"] + " " + leftover_text).strip()
+
+    return final_slides
 
 def summarize_meeting_with_ollama(
     metadata_path: str,
     model: str = "llama3.2:latest",
-    output_prefix: str = "executive_summary_ollama"
+    output_prefix: str = "executive_summary_ollama",
+    filter_mode: str = "cv"
 ):
     with open(metadata_path, "r", encoding="utf-8") as f:
         meta = json.load(f)
@@ -104,13 +239,17 @@ def summarize_meeting_with_ollama(
     meeting_title = meta.get("meeting_title", "Meeting Brief")
     sections = meta.get("sections", [])
     output_dir = os.path.dirname(os.path.abspath(metadata_path))
-    frames_dir = os.path.join(output_dir, "frames")
 
-    print(f"📋 Reading metadata from: {metadata_path}")
-    print(f"🤖 Connecting to local Ollama (Model: {model})")
-    
-    slides_to_summarize = get_informative_meeting_slides(sections, frames_dir)
-    print(f"✨ Curated {len(slides_to_summarize)} clean, non-duplicate content slides (eliminating blanks 07, 19, 34 and duplicate 40).")
+    print("=" * 70)
+    print(f"🚀 Running Pure Dynamic CV + Local LLM Meeting Summarizer (Fully-Filled Slides)")
+    print(f"📌 Meeting Title : {meeting_title}")
+    print(f"👁️  Filter Engine : Pure Dynamic Computer Vision (mode: {filter_mode})")
+    print(f"🤖 Local LLM     : {model} via Ollama")
+    print("=" * 70)
+
+    print("\n🔍 Step 1: Performing Pure Dynamic CV Filtering (Blank Elimination + Additive Build Collapsing)...")
+    slides_to_summarize = select_fully_filled_slides(sections, base_dir=output_dir, filter_mode=filter_mode, model=model)
+    print(f"✅ Retained {len(slides_to_summarize)} fully-filled slides with zero hardcoded indices.")
 
     # 1. Full meeting TL;DR
     all_dialogue = " ".join([s.get("dialogue_text", "") for s in sections])
@@ -123,11 +262,12 @@ Transcript snippet:
 
 Executive Summary (TL;DR):"""
 
-    print("🧠 Generating high-level TL;DR with Ollama...")
+    print("\n🧠 Step 2: Generating Executive TL;DR with Ollama...")
     tldr_text = query_ollama(tldr_prompt, model=model)
 
-    # 2. Summarize each informative slide
+    # 2. Summarize each fully-filled slide
     slide_results = []
+    print("\n📝 Step 3: Summarizing each fully-filled slide...")
     for idx, slide in enumerate(slides_to_summarize, start=1):
         dialogue = slide["dialogue"].strip()
         if not dialogue:
@@ -146,7 +286,7 @@ GIST:
 - <Specific fact, number, country, or topic point 2>
 TAKEAWAY: <Key actionable conclusion or observation>"""
 
-        print(f"📝 [{idx}/{len(slides_to_summarize)}] Summarizing Slide {slide['slide_index']:02d} [{slide['start_time']} - {slide['end_time']}] ({slide['filename']})...")
+        print(f"   [{idx:02d}/{len(slides_to_summarize):02d}] Slide {slide['slide_index']:02d} [{slide['start_time']} - {slide['end_time']}] -> {slide['filename']}...")
         raw_summary = query_ollama(prompt, model=model)
 
         title = f"Slide {slide['slide_index']:02d}: Content & Discussion"
@@ -183,7 +323,8 @@ TAKEAWAY: <Key actionable conclusion or observation>"""
         f"- **Meeting Name:** `{meta.get('meeting_name')}`",
         f"- **Total Duration:** {meta.get('duration_str')}",
         f"- **Total Raw Slides:** {meta.get('total_slides')}",
-        f"- **Informative Slides Documented:** {len(slide_results)}",
+        f"- **Fully-Filled Slides Documented:** {len(slide_results)}",
+        f"- **Filter Engine:** Pure Dynamic Computer Vision (Zero Hardcoding)",
         f"- **AI Engine:** `{model}` (Local via Ollama)",
         "",
         "---",
@@ -194,7 +335,7 @@ TAKEAWAY: <Key actionable conclusion or observation>"""
         "",
         "---",
         "",
-        "## Clean Slide-by-Slide Walkthrough (No Blanks / No Duplicates)",
+        "## Clean Slide-by-Slide Walkthrough (Fully-Filled Slides Only)",
         ""
     ]
 
@@ -339,9 +480,9 @@ TAKEAWAY: <Key actionable conclusion or observation>"""
 <body>
 <div class="container">
   <header>
-    <span class="badge">Executive Brief (Ollama: {model})</span>
+    <span class="badge">Executive Brief (Ollama: {model} • Pure Dynamic Computer Vision Filter)</span>
     <h1>{meeting_title}</h1>
-    <p style="color: var(--text-muted);">Duration: {meta.get('duration_str')} • Clean Informative Slides: {len(slide_results)} (No Blanks/Duplicates)</p>
+    <p style="color: var(--text-muted);">Duration: {meta.get('duration_str')} • Fully-Filled Slides: {len(slide_results)} (Zero Blanks / Zero Partial Builds)</p>
   </header>
   <div class="tldr-box">
     <h2 style="font-size: 1.15rem; color: var(--primary); margin-bottom: 8px;">Executive Overview (TL;DR)</h2>
@@ -356,7 +497,7 @@ TAKEAWAY: <Key actionable conclusion or observation>"""
     with open(html_output_path, "w", encoding="utf-8") as f:
         f.write(html_content)
 
-    # Also keep executive_summary.html and .md updated as the active default
+    # Sync default files
     default_md = os.path.join(output_dir, "executive_summary.md")
     default_html = os.path.join(output_dir, "executive_summary.html")
     with open(default_md, "w", encoding="utf-8") as f:
@@ -364,22 +505,26 @@ TAKEAWAY: <Key actionable conclusion or observation>"""
     with open(default_html, "w", encoding="utf-8") as f:
         f.write(html_content)
 
-    print(f"\n🎉 Successfully Generated Clean AI Executive Briefs!")
+    print("\n" + "=" * 70)
+    print("🎉 Successfully Generated Purely Dynamic AI Executive Briefs!")
     print(f"📄 Markdown : {md_output_path}")
     print(f"🌐 HTML     : {html_output_path}")
-    print(f"🖼️  Cleanly documented {len(slide_results)} unique slides with zero blanks or duplicates.")
+    print(f"🖼️  Documented {len(slide_results)} fully-filled slides with zero hardcoded indices.")
+    print("=" * 70)
 
 def main():
-    parser = argparse.ArgumentParser(description="Generate Clean Executive Summary via Local Ollama")
+    parser = argparse.ArgumentParser(description="Generate Executive Summary via Pure Dynamic CV + Local Ollama")
     parser.add_argument("--metadata", required=True, help="Path to metadata.json generated by process_meeting.py")
     parser.add_argument("--model", default="llama3.2:latest", help="Ollama model name (default: llama3.2:latest)")
     parser.add_argument("--prefix", default="executive_summary_ollama", help="Output filename prefix (default: executive_summary_ollama)")
+    parser.add_argument("--filter-mode", default="cv", choices=["cv", "hybrid"], help="Slide filter mode: 'cv' (Pure Dynamic Computer Vision) or 'hybrid' (CV + LLM check)")
     args = parser.parse_args()
 
     summarize_meeting_with_ollama(
         metadata_path=args.metadata,
         model=args.model,
-        output_prefix=args.prefix
+        output_prefix=args.prefix,
+        filter_mode=args.filter_mode
     )
 
 if __name__ == "__main__":

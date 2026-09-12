@@ -3,7 +3,8 @@
 - **Meeting Name:** `sample_meeting`
 - **Total Duration:** 10:06
 - **Total Raw Slides:** 45
-- **Informative Slides Documented:** 19
+- **Fully-Filled Slides Documented:** 26
+- **Filter Engine:** Pure Dynamic Computer Vision (Zero Hardcoding)
 - **AI Engine:** `llama3.2:latest` (Local via Ollama)
 
 ---
@@ -12,85 +13,83 @@
 
 Here is a concise, professional 3-4 sentence Executive Summary:
 
-This study examined English language proficiency curricula in Southeast Asian countries, analyzing data from the EF English Proficiency Index (EF EPI) 2021. Key findings indicate that countries starting English instruction at an earlier grade level (e.g., Singapore, Philippines, Malaysia) tend to achieve higher levels of proficiency, while those starting at a later grade level (e.g., Vietnam, Indonesia) lag behind. The study also highlights the impact of factors such as colonial history, teacher expertise, and limited resources on English language proficiency outcomes. Overall, the research suggests that tailored curriculum approaches and teacher support are crucial for achieving high English proficiency levels in Southeast Asian countries.
+This study examined the English language proficiency curricula in Southeast Asian countries, analyzing data from the EF English Proficiency Index (EF EPI) 2021. Key findings indicate that countries such as Singapore, the Philippines, and Malaysia have high English proficiency levels, while Vietnam and Indonesia have lower proficiency levels. The study also identified that countries starting English instruction at an earlier grade level and with longer teaching hours tend to achieve higher English proficiency levels. However, factors such as colonial history and teacher expertise also play a significant role in shaping English language proficiency outcomes in Southeast Asia.
 
 ---
 
-## Clean Slide-by-Slide Walkthrough (No Blanks / No Duplicates)
+## Clean Slide-by-Slide Walkthrough (Fully-Filled Slides Only)
 
-### Slide 01: Introduction to International Conference Presentation [00:00 - 00:34]
+### Slide 01: Introduction to International Conference [00:00 - 00:34]
 
-![Introduction to International Conference Presentation](frames/sample_meeting_frame_001_00m00s_to_00m34s.png)
+![Introduction to International Conference](frames/sample_meeting_frame_001_00m00s_to_00m34s.png)
 
 **The Gist:**
-- The presentation is being held at the International Conference in Innovation and Education hosted by the prestigious Open University in Thailand.
-- The research focuses on English language proficiency curricula in Southeast Asian countries.
+- The conference is hosted by the prestigious Open University in Thailand.
+- The presentation will focus on English language proficiency curricula in Southeast Asian countries.
 
-> **Key Takeaway:** The speakers are honored to present their research on English language proficiency in a global platform, highlighting its importance for Southeast Asian countries.
+> **Key Takeaway:** The speakers will highlight the importance of English language proficiency in Southeast Asian countries, emphasizing its global advantages.
 
 ---
 
-### Slide 02: Observations on the EF English Proficiency Index in Southeast Asia [00:34 - 01:27]
+### Slide 03: Observations on EF English Proficiency Index in Southeast Asia [00:34 - 01:32]
 
-![Observations on the EF English Proficiency Index in Southeast Asia](frames/sample_meeting_frame_002_00m34s_to_01m27s.png)
+![Observations on EF English Proficiency Index in Southeast Asia](frames/sample_meeting_frame_003_01m27s_to_01m32s.png)
 
 **The Gist:**
-- The EF English proficiency index (EFEPi) is a globally published result that measures English language proficiency of countries in Southeast Asia annually.
-- Almost all Southeast Asian countries participate in the EFEPi, with a notable trend of maintaining high or very high proficiency levels.
+- Almost all Southeast Asian countries participate in the EF English proficiency index annually.
+- Despite maintaining high or very high proficiency levels, some countries have been in the low or very low proficiency bands over the years.
 
-> **Key Takeaway:** The researchers aim to investigate the English language proficiency curriculum among Southeast Asian countries to understand the factors contributing to the observed trends in EFEPi results.
+> **Key Takeaway:** The study aims to investigate the English language proficiency curriculum among Southeast Asian countries to better understand the factors contributing to the variation in proficiency levels.
 
 ---
 
-### Slide 04: English Language Proficiency in Southeast Asian Countries [01:27 - 01:57]
+### Slide 04: English Education Curriculum in Southeast Asian Countries [01:32 - 01:57]
 
-![English Language Proficiency in Southeast Asian Countries](frames/sample_meeting_frame_004_01m32s_to_01m57s.png)
+![English Education Curriculum in Southeast Asian Countries](frames/sample_meeting_frame_004_01m32s_to_01m57s.png)
 
 **The Gist:**
-- The EF English Proficiency Index 2021 shows that Southeast Asian countries have varying levels of English proficiency, with some countries performing better than others.
-- Observations of the English education curriculum in Southeast Asian countries reveal a focus on teaching English as a foreign language, with an emphasis on grammar, vocabulary, and listening skills.
-- Significant features of curricula in Southeast Asian countries contributing to high English proficiency levels include the use of standardized tests, such as TOEFL and IELTS, and the incorporation of technology-enhanced learning tools.
+- The EF English proficiency index 2021 shows a range of proficiency levels among Southeast Asian countries.
+- Observations indicate that English education curricula in Southeast Asian countries have varying features that contribute to producing citizens with high English proficiency levels.
 
-> **Key Takeaway:** Southeast Asian countries' English education curricula are showing promise in producing citizens with high English proficiency levels, but further analysis is needed to identify best practices and areas for improvement.
+> **Key Takeaway:** Southeast Asian countries' English education curricula have diverse features that impact their citizens' English proficiency levels, warranting further analysis to identify effective strategies for improvement.
 
 ---
 
-### Slide 06: Study Background and Methodology [01:57 - 02:32]
+### Slide 05: Study Data Source [01:57 - 02:02]
 
-![Study Background and Methodology](frames/sample_meeting_frame_006_02m02s_to_02m32s.png)
+![Study Data Source](frames/sample_meeting_frame_005_01m57s_to_02m02s.png)
 
 **The Gist:**
-- The study is based on the EF Epi 2021 Accord and the theory of Bradley's Effectiveness model for curriculum development indicators.
-- The researchers examined a curricular implementation from five years ago, using data from EF Epi 2021 as a reference point.
+- Based on the European Food Safety Authority (EFSA)
 
-> **Key Takeaway:** The study leverages existing data and theoretical frameworks to analyze a past curriculum implementation, employing a data mining approach to gather insights.
+> **Key Takeaway:** The study relies heavily on EFSA's data and conclusions for its findings.
 
 ---
 
-### Slide 08: English Proficiency Results of Southeast Asian Countries in 2021 [02:32 - 03:06]
+### Slide 06: Overview of the Epi 2021 Accord on Curriculum Development Indicators [02:02 - 02:32]
 
-![English Proficiency Results of Southeast Asian Countries in 2021](frames/sample_meeting_frame_008_02m37s_to_03m06s.png)
+![Overview of the Epi 2021 Accord on Curriculum Development Indicators](frames/sample_meeting_frame_006_02m02s_to_02m32s.png)
 
 **The Gist:**
-- Singapore had the highest level of English proficiency
-- Philippines and Malaysia had high levels of proficiency
-- Vietnam and Indonesia had low levels of proficiency
-- Myanmar, Cambodia, and Thailand had very low proficiency
-- Brunei, Laos, and Timor-Lester were excluded from the results due to non-participation in ESETI 2024
+- The accord is based on the theory of Bradley's Effectiveness model for curriculum development.
+- The curricular implementation being examined is from five years ago, likely an English curriculum from a certain country implemented at least five years ago.
 
-> **Key Takeaway:** The study highlights significant variations in English proficiency among Southeast Asian countries, with some nations performing much better than others.
+> **Key Takeaway:** The researchers used a data mining approach to gather data for this study, suggesting a focus on analyzing existing data to inform curriculum development.
 
 ---
 
-### Slide 09: Southeast Asian Countries List [03:06 - 03:11]
+### Slide 09: English Proficiency Levels in Southeast Asian Countries (2021) [02:37 - 03:11]
 
-![Southeast Asian Countries List](frames/sample_meeting_frame_009_03m06s_to_03m11s.png)
+![English Proficiency Levels in Southeast Asian Countries (2021)](frames/sample_meeting_frame_009_03m06s_to_03m11s.png)
 
 **The Gist:**
-- The list includes 11 Southeast Asian countries.
-- The countries are: [list of countries not specified in the dialogue]
+- Singapore has the highest level of English proficiency.
+- Philippines and Malaysia have high levels of proficiency.
+- Vietnam and Indonesia have low proficiency levels.
+- Myanmar, Cambodia, and Thailand have very low proficiency levels.
+- Brunei, Laos, and Timor-Leste were excluded from the table due to non-participation in ESETI 2024.
 
-> **Key Takeaway:** The slide appears to be setting the stage for a discussion about Southeast Asia, but the specific countries are not mentioned.
+> **Key Takeaway:** English proficiency levels vary significantly across Southeast Asian countries, with some nations having high proficiency levels while others struggle with basic proficiency.
 
 ---
 
@@ -102,15 +101,15 @@ This study examined English language proficiency curricula in Southeast Asian co
 - Six countries (Singapore, Philippines, Malaysia, Myanmar, Thailand, and Brunei) started English instruction at grade one.
 - Four countries (Indonesia, Cambodia, Laos, and Timor-Leste) started English instruction at grade seven.
 - Vietnam started English education at grade 3.
-- The number of teaching hours varies among Southeast Asian countries, but those starting English at an earlier level tend to have higher teaching hours.
+- The number of teaching hours among Southeast Asian countries varied, but those that started earlier and taught longer hours achieved higher English proficiency.
 
-> **Key Takeaway:** While starting English education at an earlier level is associated with higher teaching hours, it does not guarantee higher English proficiency, suggesting that other factors such as colonial history and teacher expertise may also play a role.
+> **Key Takeaway:** Early start to English education and longer teaching hours do not guarantee higher English proficiency in Southeast Asian countries, suggesting other factors such as colonial history and teacher expertise may play a significant role.
 
 ---
 
-### Slide 14: Challenges in English Language Acquisition in Myanmar [04:28 - 04:54]
+### Slide 14: Language Acquisition Challenges in Myanmar [04:33 - 04:54]
 
-![Challenges in English Language Acquisition in Myanmar](frames/sample_meeting_frame_014_04m33s_to_04m54s.png)
+![Language Acquisition Challenges in Myanmar](frames/sample_meeting_frame_014_04m33s_to_04m54s.png)
 
 **The Gist:**
 - Myanmar was not colonized by English-speaking countries.
@@ -118,142 +117,224 @@ This study examined English language proficiency curricula in Southeast Asian co
 - Studies revealed additional difficulties in acquiring the English language.
 - Myanmar did not offer specialized courses as part of their education system.
 
-> **Key Takeaway:** The lack of English language exposure and specialized education in Myanmar may contribute to difficulties in English language acquisition, highlighting the need for targeted language support initiatives.
+> **Key Takeaway:** The lack of English language exposure and specialized education in Myanmar may contribute to unique challenges in language acquisition.
 
 ---
 
-### Slide 16: Challenges in Teacher Education in Thailand [04:54 - 05:39]
+### Slide 17: Challenges in Teacher Education in Thailand [04:59 - 05:44]
 
-![Challenges in Teacher Education in Thailand](frames/sample_meeting_frame_016_04m59s_to_05m39s.png)
+![Challenges in Teacher Education in Thailand](frames/sample_meeting_frame_017_05m39s_to_05m44s.png)
 
 **The Gist:**
-- In Thailand, student teachers were unable to focus on attaining expertise in specific subjects like English.
-- The country had a limited number of English teachers, leading some teachers to teach concepts beyond their expertise.
+- In Thailand, student teachers struggled to focus on attained expertise in specific subjects like English.
+- Due to limited English teachers, some teachers were forced to teach concepts beyond their expertise, including teaching younger students.
 
-> **Key Takeaway:** A training program launched in 2016 by Kailan and the British Council improved the expertise and strategies of English teachers in Thailand, setting the stage for further teacher training.
+> **Key Takeaway:** A training program launched by Kailan in 2016 improved the expertise and teaching strategies of English teachers in Thailand, paving the way for better teacher training and education.
 
 ---
 
-### Slide 21: Teaching Approaches in Southeast Asian Countries [05:39 - 06:20]
+### Slide 18: Bilingual Education Implementation in Southeast Asia [05:44 - 05:49]
 
-![Teaching Approaches in Southeast Asian Countries](frames/sample_meeting_frame_021_06m04s_to_06m20s.png)
+![Bilingual Education Implementation in Southeast Asia](frames/sample_meeting_frame_018_05m44s_to_05m49s.png)
 
 **The Gist:**
-- Singapore, Thailand, and Brunei implemented the bilingual education system.
-- The Republic of the Philippines adopted the K-12 curriculum with mother tongue-based multilingual education.
-- Malaysia, Indonesia, Cambodia, and other countries applied the communicative language teaching approach.
-- Indonesia also used learner-centered and experience-based instruction, incorporating the use of students' native language as a medium of instruction.
+- Thailand and Brunei implemented the bilingual education system.
+- The Republic of Brunei has also adopted this system.
 
-> **Key Takeaway:** The diverse teaching approaches in Southeast Asia highlight the need for a tailored approach to language education that considers the unique cultural and linguistic contexts of each country.
+> **Key Takeaway:** The implementation of bilingual education in Thailand and Brunei suggests a growing trend in Southeast Asia towards promoting language diversity and cultural exchange through education.
 
 ---
 
-### Slide 23: Comparative Analysis of English Language Education in Southeast Asia [06:20 - 06:40]
+### Slide 20: Comparison of Education Systems in Southeast Asia [05:59 - 06:04]
 
-![Comparative Analysis of English Language Education in Southeast Asia](frames/sample_meeting_frame_023_06m25s_to_06m40s.png)
+![Comparison of Education Systems in Southeast Asia](frames/sample_meeting_frame_020_05m59s_to_06m04s.png)
 
 **The Gist:**
-- Vietnam's educational system prioritized accuracy over fluency in language learning.
-- Myanmar's English curriculum was based on the Common European Framework of Reference for Languages.
+- The Philippines adopted the K-12 curriculum.
+- Malaysia, Indonesia, and Cambodia applied the communicative language approach.
 
-> **Key Takeaway:** Understanding the differences in English language education approaches among Southeast Asian countries can inform strategies for effective language instruction.
+> **Key Takeaway:** The education systems in these Southeast Asian countries have adopted different approaches to language education, with the Philippines focusing on the K-12 curriculum and the others emphasizing communicative language.
 
 ---
 
-### Slide 25: Bilingual Education System in Singapore [06:40 - 07:17]
+### Slide 21: Teaching Approach in Indonesia [06:04 - 06:20]
+
+![Teaching Approach in Indonesia](frames/sample_meeting_frame_021_06m04s_to_06m20s.png)
+
+**The Gist:**
+- Indonesia applied learner-centered and experience-based instruction
+- The country used the ordering method and demolition approach
+- Students' native language was used as the medium of instruction
+
+> **Key Takeaway:** Indonesia's teaching approach emphasizes learner-centered and experiential learning, with a focus on utilizing students' native language to facilitate instruction.
+
+---
+
+### Slide 22: Vietnam's Educational System [06:20 - 06:25]
+
+![Vietnam's Educational System](frames/sample_meeting_frame_022_06m20s_to_06m25s.png)
+
+**The Gist:**
+- Vietnam limited the words that must be learned in each grade
+- Its educational system focused on
+
+> **Key Takeaway:** Vietnam's educational system prioritizes a more streamlined approach to language learning, potentially indicating a focus on efficiency and effectiveness.
+
+---
+
+### Slide 23: Contextualization of English Language Education in Myanmar [06:25 - 06:40]
+
+![Contextualization of English Language Education in Myanmar](frames/sample_meeting_frame_023_06m25s_to_06m40s.png)
+
+**The Gist:**
+- The English curriculum in Myanmar was based on the Common European Framework of Reference for Languages (CEFR).
+- The CEFR ensures that English language instruction is taught in context.
+
+> **Key Takeaway:** The use of the CEFR framework provides a structured approach to teaching English in Myanmar, allowing for a more contextualized and effective language learning experience.
+
+---
+
+### Slide 25: Bilingual Education System in Singapore [06:45 - 07:17]
 
 ![Bilingual Education System in Singapore](frames/sample_meeting_frame_025_06m45s_to_07m17s.png)
 
 **The Gist:**
-- The percentage of residents in Singapore who speak both English and another language has increased by 13.5% from 2000 to 2010.
+- The percentage of residents in Singapore who speak both English and another language has increased by 13.5% since 2000.
 - The percentage has further increased to 48.3% in 2020, according to a report by Language Magazine.
 
-> **Key Takeaway:** The bilingual education system in Singapore is showing significant growth in language proficiency, indicating a strong trend towards multilingualism in the country.
+> **Key Takeaway:** The bilingual education system in Singapore is showing significant growth in language proficiency, indicating a positive trend in language diversity and education.
 
 ---
 
-### Slide 27: Alignment of Language and Arts Multiliteracy Curriculum with Timeless Learning Theory [07:17 - 07:38]
+### Slide 26: Language and Arts Curriculum Discussion [07:17 - 07:22]
 
-![Alignment of Language and Arts Multiliteracy Curriculum with Timeless Learning Theory](frames/sample_meeting_frame_027_07m22s_to_07m38s.png)
+![Language and Arts Curriculum Discussion](frames/sample_meeting_frame_026_07m17s_to_07m22s.png)
 
 **The Gist:**
-- The language and arts multiliteracy curriculum in the Philippines is aligned with John PJ's development learning theory.
-- The curriculum applies a spiral progression way of learning, which well develops children's cognitive skills in language.
+- The discussion revolves around the language and arts multiliteracy curriculum.
+- No specific details or statistics are mentioned.
 
-> **Key Takeaway:** The use of a spiral progression learning approach in the multiliteracy curriculum may be effective in developing children's language skills, suggesting a potential best practice in education.
+> **Key Takeaway:** The slide suggests a general conversation about the language and arts curriculum, without providing concrete information or key takeaways.
 
 ---
 
-### Slide 29: Malaysia English Language Program Benefits [07:38 - 07:53]
+### Slide 27: Alignment with Timeless Learning Theory [07:22 - 07:38]
+
+![Alignment with Timeless Learning Theory](frames/sample_meeting_frame_027_07m22s_to_07m38s.png)
+
+**The Gist:**
+- The Philippines' education system is aligned with John PJ's development learning theory.
+- The curriculum applies a spiral progression way of learning, which develops children's cognitive skills in language.
+
+> **Key Takeaway:** The Philippines' education system is utilizing a learning approach that is consistent with a well-established theory, suggesting a structured and effective method for developing children's language skills.
+
+---
+
+### Slide 29: Malaysia English Language Program Benefits [07:43 - 07:53]
 
 ![Malaysia English Language Program Benefits](frames/sample_meeting_frame_029_07m43s_to_07m53s.png)
 
 **The Gist:**
-- The activities in Malaysia will improve students' English speaking skills
-- The program will also enhance students' English grammar skills, vocabulary skills, and pragmatic competence
+- Activities in Malaysia will improve students' English speaking skills
+- The program will also enhance students' English grammar skills, vocabulary skills, pragmatic competence, and fluency
 
 > **Key Takeaway:** Implementing the Malaysia English Language Program is expected to yield significant improvements in students' English language proficiency.
 
 ---
 
-### Slide 31: Comparison of English Instruction in Southeast Asian Countries [07:53 - 08:03]
+### Slide 31: Comparison of English Instruction in Southeast Asian Countries [07:58 - 08:03]
 
 ![Comparison of English Instruction in Southeast Asian Countries](frames/sample_meeting_frame_031_07m58s_to_08m03s.png)
 
 **The Gist:**
-- Earlier English instruction is a significant feature in some Southeast Asian countries.
-- No specific details on the other countries are mentioned.
+- Earlier English instruction in some Southeast Asian countries
+- No specific details on the other countries mentioned
 
-> **Key Takeaway:** The presentation highlights the importance of early English instruction in some Southeast Asian countries, suggesting a potential area for comparison or discussion.
+> **Key Takeaway:** The presentation highlights the variation in English instruction across Southeast Asian countries, suggesting that some countries may be adopting English instruction earlier than others.
 
 ---
 
-### Slide 36: Key Findings on English Curriculum Revision and Teaching Hours [08:03 - 09:04]
+### Slide 32: Instructional Approach Emphasis [08:03 - 08:08]
 
-![Key Findings on English Curriculum Revision and Teaching Hours](frames/sample_meeting_frame_036_08m23s_to_09m04s.png)
+![Instructional Approach Emphasis](frames/sample_meeting_frame_032_08m03s_to_08m08s.png)
+
+**The Gist:**
+- The meeting emphasizes the importance of learner-centered and experience-based instruction.
+- No specific numbers or countries are mentioned.
+
+> **Key Takeaway:** The meeting highlights the value of personalized and experiential learning approaches, suggesting a shift away from traditional teaching methods.
+
+---
+
+### Slide 33: Slide 33: Content & Discussion [08:08 - 08:13]
+
+![Slide 33: Content & Discussion](frames/sample_meeting_frame_033_08m08s_to_08m13s.png)
+
+**The Gist:**
+- I don't see any dialogue or topic information provided. Please provide the dialogue and topic information for the slide section, and I'll be happy to assist you in creating the executive slide-by-slid
+
+> **Key Takeaway:** Key content and data points covered.
+
+---
+
+### Slide 35: Study Findings and Conclusion [08:18 - 08:23]
+
+![Study Findings and Conclusion](frames/sample_meeting_frame_035_08m18s_to_08m23s.png)
+
+**The Gist:**
+- Continuous training for English teachers was provided
+- The study's findings led to the conclusion that provision of such training was necessary
+
+> **Key Takeaway:** The study highlights the need for continuous training for English teachers, indicating a potential area for improvement in education.
+
+---
+
+### Slide 36: English Curriculum Revision Trends in South East Asian Countries [08:23 - 09:04]
+
+![English Curriculum Revision Trends in South East Asian Countries](frames/sample_meeting_frame_036_08m23s_to_09m04s.png)
 
 **The Gist:**
 - South East Asian countries continuously revise their English curricula for further development or improvement.
-- Countries with higher teaching hours have a higher possibility for students to achieve higher proficiency.
-- Countries starting English instruction at an earlier level tend to yield students with higher proficiency.
+- Countries with higher teaching hours tend to yield students with higher proficiency.
+- Countries with earlier English instruction levels also tend to produce higher-proficiency students.
 
-> **Key Takeaway:** Effective English curriculum revision and sufficient teaching hours are crucial for improving student proficiency in the region.
-
----
-
-### Slide 38: 2021 English Education Benchmarking [09:04 - 09:20]
-
-![2021 English Education Benchmarking](frames/sample_meeting_frame_038_09m09s_to_09m20s.png)
-
-**The Gist:**
-- 2021 can serve as a basis to help identify significant features of each curriculum
-- This can be adopted by other countries to Foster their English education
-
-> **Key Takeaway:** Establishing a baseline for English education curricula in 2021 can provide valuable insights for other countries to improve their own English education systems.
+> **Key Takeaway:** The effectiveness of English curriculum revisions in South East Asian countries is influenced by factors such as teaching hours and early English instruction levels, suggesting that targeted interventions can improve student proficiency.
 
 ---
 
-### Slide 43: Recommendations for English Language Education in Southeast Asia [09:20 - 09:54]
+### Slide 39: Key Takeaways from 2021 Research on English Education [09:09 - 09:25]
 
-![Recommendations for English Language Education in Southeast Asia](frames/sample_meeting_frame_043_09m45s_to_09m54s.png)
+![Key Takeaways from 2021 Research on English Education](frames/sample_meeting_frame_039_09m20s_to_09m25s.png)
 
 **The Gist:**
-- Southeast Asian countries may participate in the EF Epi program for continuous monitoring and improvement.
-- Countries with lower proficiency may recognize and improve pictures from their existing curricula.
-- Countries with lower proficiency may adopt significant features from English curricula in Southeast Asian countries that performed well.
+- Researchers used 2021 as a baseline to identify significant features of English curricula that can be adopted by other countries.
+- The researchers have developed recommendations for English education.
 
-> **Key Takeaway:** The presentation concludes with recommendations for English language education in Southeast Asia, emphasizing the importance of continuous improvement and adopting best practices from successful countries.
+> **Key Takeaway:** The study aims to provide a foundation for other countries to build upon when developing their own English education curricula.
 
 ---
 
-### Slide 45: Key Takeaway on English Language Education Contribution [09:54 - 10:06]
+### Slide 43: Southeast Asian Countries to Participate in EF Epi for Continuous Monitoring [09:25 - 09:54]
 
-![Key Takeaway on English Language Education Contribution](frames/sample_meeting_frame_045_09m59s_to_10m06s.png)
+![Southeast Asian Countries to Participate in EF Epi for Continuous Monitoring](frames/sample_meeting_frame_043_09m45s_to_09m54s.png)
 
 **The Gist:**
-- The research is expected to have a significant impact on English language education globally.
+- Southeast Asian countries will participate in the EF Epi for continuous monitoring of improvement.
+- Countries with lower proficiency will recognize pictures of their existing curricula that can be improved.
+- Countries with lower proficiency may consider adopting significant features of English curricula in Southeast Asian countries that performed well.
+
+> **Key Takeaway:** The presentation concludes that Southeast Asian countries will engage in the EF Epi to improve their English curricula, with a focus on adopting best practices from successful countries.
+
+---
+
+### Slide 45: Research Contribution to English Language Education [09:59 - 10:06]
+
+![Research Contribution to English Language Education](frames/sample_meeting_frame_045_09m59s_to_10m06s.png)
+
+**The Gist:**
+- The researcher believes their work will have a significant impact on English language education globally.
 - No specific numbers or countries are mentioned in this brief dialogue.
 
-> **Key Takeaway:** The speaker emphasizes the potential of the research to make a substantial contribution to English language education worldwide.
+> **Key Takeaway:** The researcher is optimistic about the potential of their research to make a substantial contribution to the field of English language education worldwide.
 
 ---
