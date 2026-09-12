@@ -2,9 +2,8 @@
 
 A fast, lightweight, and privacy-first pipeline that transforms meeting video recordings (Microsoft Teams, Zoom, or YouTube presentations) and timestamped transcripts into:
 
-1. **Interleaved Meeting Notes (`meeting_notes.md`):** Complete chronologically aligned record pairing every distinct presentation slide with its exact spoken dialogue.
-2. **Executive Briefs (`executive_summary.html` & `.md`):** Thematic, high-level summary grouping micro-slides into major chapters with key takeaways and representative slide visuals.
-3. **Structured Vector Dataset (`metadata.json`):** Topic-bounded chunks with timestamp intervals and image links, ready for Phase 2 local AI search.
+1. **Executive Briefs (`executive_summary.html` & `.md`):** Thematic, high-level summary grouping micro-slides into major chapters with key takeaways and representative slide visuals.
+2. **Structured Vector Dataset (`metadata.json`):** Topic-bounded chunks with timestamp intervals and image links, ready for Phase 2 local AI search.
 
 ---
 
@@ -72,7 +71,6 @@ meeting_Documentation/
 │
 └── output/                   # Generated meeting knowledge bases
     └── sample_meeting/
-        ├── meeting_notes.md       # Full interleaved transcript with slides
         ├── executive_summary_ollama.md   # Pure CV-filtered AI Executive Brief (Markdown)
         ├── executive_summary_ollama.html # Interactive styled browser/PDF report
         ├── metadata.json          # Structured dataset for Phase 2 RAG
@@ -141,11 +139,9 @@ To process any video and transcript, run:
 
 ## 📄 Output Artifacts Explained
 
-1. **`meeting_notes.md`**:
-   Comprehensive reference document. Contains every detected slide with its active time window (`[MM:SS - MM:SS]`) and the complete, cleaned list of spoken dialogue points during that interval.
-2. **`executive_summary_ollama.html` & `.md`**:
+1. **`executive_summary_ollama.html` & `.md`**:
    Automated, chapter-by-chapter executive brief synthesized 100% locally by **Ollama (`llama3.2`)** on your GPU using pure dynamic Computer Vision filtering (zero blanks, zero partial builds).
-3. **`metadata.json`**:
+2. **`metadata.json`**:
    Clean JSON manifest containing segment start/end seconds, relative image paths, and combined dialogue blocks. Acts as the ingestion source for Phase 2 semantic retrieval.
 
 ---

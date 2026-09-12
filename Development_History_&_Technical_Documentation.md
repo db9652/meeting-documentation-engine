@@ -33,7 +33,6 @@ flowchart TD
         F --> G[Extract Raw Keyframes: 45 Slides]
         D --> H[Temporal Alignment Engine]
         G --> H
-        H --> I[meeting_notes.md: Interleaved Notes]
         H --> J[metadata.json: Timeline Manifest]
     end
 
@@ -175,9 +174,7 @@ All processing runs entirely on-device without cloud infrastructure:
 
 ## 5. Output Artifacts & Deliverables
 
-1. **`meeting_notes.md`:**  
-   Comprehensive reference document pairing every detected presentation slide with its exact active time window (`[MM:SS - MM:SS]`) and verbatim dialogue cues.
-2. **`executive_summary_ollama.html` & `.md`:**  
+1. **`executive_summary_ollama.html` & `.md`:**  
    Clean, chapter-by-chapter Executive Brief featuring high-level TL;DR, slide-by-slide key takeaways, and verified screenshots of all 26 fully-filled slides.
 3. **`metadata.json`:**  
    Structured JSON manifest with precise timestamp intervals, image paths, and consolidated dialogue, ready for Phase 2 local semantic vector search.
