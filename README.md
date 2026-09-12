@@ -63,7 +63,7 @@ meeting_Documentation/
 ├── setup.py                  # Standard Python package installer
 ├── requirements.txt          # Python library dependencies
 ├── README.md                 # Project documentation & usage guide
-├── Development History and documentation.md # Full chronological engineering log & fixes
+├── Development_History_&_Technical_Documentation.md # Full chronological engineering log & fixes
 ├── Project_Blueprint_and_Implementation_Plan.md # Initial project blueprint
 │
 ├── sample/                   # Test sample data
