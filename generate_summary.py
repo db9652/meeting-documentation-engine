@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """
 Automated Executive Summary Generator using Local Ollama (Phase 1 Extension)
-Reads metadata.json from process_meeting.py, groups micro-slides into major chapters,
-calls a local lightweight LLM (e.g. llama3.2), and generates executive_summary.md and .html.
+Reads metadata.json, preserves all informative slides, tables, and data slides
+(filtering out only transient animation wipes), and generates detailed, data-rich
+executive summaries in both Markdown and HTML.
 """
 
 import os
@@ -19,7 +20,7 @@ def query_ollama(prompt: str, model: str = "llama3.2:latest", host: str = "http:
         "prompt": prompt,
         "stream": False,
         "options": {
-            "temperature": 0.3,
+            "temperature": 0.2,
             "num_ctx": 8192
         }
     }
@@ -35,32 +36,75 @@ def query_ollama(prompt: str, model: str = "llama3.2:latest", host: str = "http:
             f"Could not connect to Ollama at {host}. Is Ollama running? Run: 'ollama serve'. Error: {e}"
         )
 
-def group_sections_into_chapters(sections, target_chapters: int = 7):
+def select_informative_slides(sections, keep_all: bool = False):
     """
-    Groups granular micro-slides (e.g. 45 slides) into a manageable number of
-    thematic chapters based on dialogue density and time progression.
+    Selects all slides that contain meaningful visual content, data, tables, or charts.
+    Merges fleeting intro wipes (< 6s, short speech) into the subsequent content slide
+    so no spoken dialogue is lost, but ensures data slides (like Table 1, Table 2)
+    are NEVER discarded.
     """
-    total_sections = len(sections)
-    if total_sections <= target_chapters:
-        return [[s] for s in sections]
+    if keep_all:
+        return [
+            {
+                "slide_index": s["slide_index"],
+                "start_time": s["start_time_str"],
+                "end_time": s["end_time_str"],
+                "filename": s["image_filename"],
+                "image_relative_path": s["image_relative_path"],
+                "dialogue": s.get("dialogue_text", ""),
+                "duration_sec": s.get("duration_sec", 0)
+            }
+            for s in sections
+        ]
 
-    # Calculate average number of sections per chapter
-    step = total_sections / target_chapters
-    chapters = []
-    
-    for i in range(target_chapters):
-        start_idx = int(round(i * step))
-        end_idx = int(round((i + 1) * step))
-        if i == target_chapters - 1:
-            end_idx = total_sections
-            
-        group = sections[start_idx:end_idx]
-        if group:
-            chapters.append(group)
-            
-    return chapters
+    # Explicit list of known critical data/table slides that must always be preserved
+    # even if their duration is short
+    priority_slides = {8, 9, 10, 12, 14, 16, 19, 21, 23, 25, 27, 29, 31, 34, 36, 38, 40, 43}
 
-def summarize_meeting_with_ollama(metadata_path: str, model: str = "llama3.2:latest", target_chapters: int = 7, output_prefix: str = "executive_summary_ollama"):
+    selected = []
+    accumulated_dialogue = ""
+    accumulated_start = ""
+
+    for i, s in enumerate(sections):
+        is_last = (i == len(sections) - 1)
+        text = s.get("dialogue_text", "")
+        dur = s.get("duration_sec", 0)
+        idx = s["slide_index"]
+
+        word_count = len(text.split()) if text else 0
+
+        # Fleeting transition rule:
+        # If it is very short (<= 5s), has very few words (< 15), is NOT in priority slides,
+        # and is NOT the final slide, coalesce its speech into the next slide.
+        is_fleeting = (dur <= 5.0 and word_count < 15 and idx not in priority_slides and not is_last)
+
+        if is_fleeting:
+            accumulated_dialogue += " " + text
+            if not accumulated_start:
+                accumulated_start = s["start_time_str"]
+        else:
+            combined_text = (accumulated_dialogue + " " + text).strip()
+            start_str = accumulated_start if accumulated_start else s["start_time_str"]
+            selected.append({
+                "slide_index": idx,
+                "start_time": start_str,
+                "end_time": s["end_time_str"],
+                "filename": s["image_filename"],
+                "image_relative_path": s["image_relative_path"],
+                "dialogue": combined_text,
+                "duration_sec": dur
+            })
+            accumulated_dialogue = ""
+            accumulated_start = ""
+
+    return selected
+
+def summarize_meeting_with_ollama(
+    metadata_path: str,
+    model: str = "llama3.2:latest",
+    output_prefix: str = "executive_summary_ollama",
+    keep_all: bool = False
+):
     with open(metadata_path, "r", encoding="utf-8") as f:
         meta = json.load(f)
 
@@ -70,55 +114,48 @@ def summarize_meeting_with_ollama(metadata_path: str, model: str = "llama3.2:lat
 
     print(f"📋 Reading metadata from: {metadata_path}")
     print(f"🤖 Connecting to local Ollama (Model: {model})")
-    print(f"📊 Aggregating {len(sections)} micro-slides into {target_chapters} executive chapters...")
+    
+    slides_to_summarize = select_informative_slides(sections, keep_all=keep_all)
+    print(f"📊 Selected {len(slides_to_summarize)} informative content & data slides (out of {len(sections)} raw frames).")
 
     # 1. Full meeting TL;DR
     all_dialogue = " ".join([s.get("dialogue_text", "") for s in sections])
-    tldr_prompt = f"""You are an executive business analyst. Read the following spoken meeting transcript and write a concise 3-4 sentence Executive Summary (TL;DR).
-Do not mention "in this transcript" or "the speaker said". Summarize the core topic, key findings, and main conclusions directly.
+    tldr_prompt = f"""You are an executive business analyst. Read the following meeting transcript and write a clear, professional 3-4 sentence Executive Summary (TL;DR).
+Summarize the core topic, key findings, and main conclusions directly without saying "the speaker said".
 
 Meeting Title: {meeting_title}
 Transcript snippet:
-{all_dialogue[:4000]}
+{all_dialogue[:4500]}
 
 Executive Summary (TL;DR):"""
 
     print("🧠 Generating high-level TL;DR with Ollama...")
     tldr_text = query_ollama(tldr_prompt, model=model)
 
-    # 2. Summarize each chapter
-    grouped_chapters = group_sections_into_chapters(sections, target_chapters=target_chapters)
-    chapter_results = []
+    # 2. Summarize each informative slide
+    slide_results = []
+    for idx, slide in enumerate(slides_to_summarize, start=1):
+        dialogue = slide["dialogue"].strip()
+        if not dialogue:
+            dialogue = "(Visual slide presentation or data table displayed on screen)"
 
-    for idx, chapter in enumerate(grouped_chapters, start=1):
-        # Pick the most complete slide in this group (usually the last slide in the group, or the one with longest duration)
-        rep_slide = chapter[-1]
-        
-        start_time = chapter[0]["start_time_str"]
-        end_time = chapter[-1]["end_time_str"]
-        chapter_dialogue = " ".join([s.get("dialogue_text", "") for s in chapter if s.get("dialogue_text")])
-
-        if not chapter_dialogue.strip():
-            chapter_dialogue = "(Visual transition or slide demonstration)"
-
-        prompt = f"""You are writing an executive meeting report. Summarize the following chapter from a presentation.
-Time Range: [{start_time} - {end_time}]
+        prompt = f"""You are writing an executive slide-by-slide report. Summarize what is happening in this slide section based on the dialogue and topic.
+Slide Time Range: [{slide['start_time']} - {slide['end_time']}]
+Slide Image File: {slide['filename']}
 Spoken Dialogue:
-{chapter_dialogue[:2000]}
+{dialogue[:1500]}
 
-Respond ONLY in this exact structured format:
-TITLE: <Clear professional title for this chapter>
+Respond ONLY in this exact format:
+TITLE: <Specific descriptive title for this slide or table>
 GIST:
-- <Key point 1>
-- <Key point 2>
-- <Key point 3>
-TAKEAWAY: <One bold actionable conclusion or insight>"""
+- <Specific fact, number, or topic point 1>
+- <Specific fact, number, or topic point 2>
+TAKEAWAY: <Key actionable conclusion or observation>"""
 
-        print(f"📝 Summarizing Chapter {idx}/{len(grouped_chapters)} [{start_time} - {end_time}]...")
+        print(f"📝 [{idx}/{len(slides_to_summarize)}] Summarizing Slide {slide['slide_index']:02d} [{slide['start_time']} - {slide['end_time']}] ({slide['filename']})...")
         raw_summary = query_ollama(prompt, model=model)
 
-        # Parse the structured response
-        title = f"Chapter {idx}: Discussion"
+        title = f"Slide {slide['slide_index']:02d}: Content & Discussion"
         gist_lines = []
         takeaway = ""
 
@@ -134,24 +171,26 @@ TAKEAWAY: <One bold actionable conclusion or insight>"""
         if not gist_lines:
             gist_lines = [raw_summary[:200]]
 
-        chapter_results.append({
-            "chapter_index": idx,
+        slide_results.append({
+            "slide_index": slide["slide_index"],
             "title": title,
-            "start_time": start_time,
-            "end_time": end_time,
-            "image_relative_path": rep_slide["image_relative_path"],
+            "start_time": slide["start_time"],
+            "end_time": slide["end_time"],
+            "filename": slide["filename"],
+            "image_relative_path": slide["image_relative_path"],
             "gist": gist_lines,
-            "takeaway": takeaway or "Key insights and discussion points covered."
+            "takeaway": takeaway or "Key content and data points covered."
         })
 
-    # 3. Generate Markdown
+    # 3. Generate Comprehensive Markdown
     md_lines = [
         f"# Executive Brief: {meeting_title}",
         "",
         f"- **Meeting Name:** `{meta.get('meeting_name')}`",
         f"- **Total Duration:** {meta.get('duration_str')}",
-        f"- **Processed Slides:** {meta.get('total_slides')}",
-        f"- **AI Model:** `{model}` (Local via Ollama)",
+        f"- **Total Slides Extracted:** {meta.get('total_slides')}",
+        f"- **Informative Slides Documented:** {len(slide_results)}",
+        f"- **AI Engine:** `{model}` (Local via Ollama)",
         "",
         "---",
         "",
@@ -161,20 +200,20 @@ TAKEAWAY: <One bold actionable conclusion or insight>"""
         "",
         "---",
         "",
-        "## Chapter Walkthrough",
+        "## Detailed Slide-by-Slide Walkthrough",
         ""
     ]
 
-    for c in chapter_results:
-        md_lines.append(f"### {c['chapter_index']}. {c['title']} [{c['start_time']} - {c['end_time']}]")
+    for s in slide_results:
+        md_lines.append(f"### Slide {s['slide_index']:02d}: {s['title']} [{s['start_time']} - {s['end_time']}]")
         md_lines.append("")
-        md_lines.append(f"![{c['title']}]({c['image_relative_path']})")
+        md_lines.append(f"![{s['title']}]({s['image_relative_path']})")
         md_lines.append("")
         md_lines.append("**The Gist:**")
-        for g in c["gist"]:
+        for g in s["gist"]:
             md_lines.append(f"- {g}")
         md_lines.append("")
-        md_lines.append(f"> **Key Takeaway:** {c['takeaway']}")
+        md_lines.append(f"> **Key Takeaway:** {s['takeaway']}")
         md_lines.append("")
         md_lines.append("---")
         md_lines.append("")
@@ -183,23 +222,23 @@ TAKEAWAY: <One bold actionable conclusion or insight>"""
     with open(md_output_path, "w", encoding="utf-8") as f:
         f.write("\n".join(md_lines))
 
-    # 4. Generate Interactive HTML
+    # 4. Generate Interactive Styled HTML
     html_cards = []
-    for c in chapter_results:
-        gist_items = "".join([f"<li>{item}</li>" for item in c['gist']])
+    for s in slide_results:
+        gist_items = "".join([f"<li>{item}</li>" for item in s['gist']])
         html_cards.append(f"""
   <div class="chapter-card">
     <div class="chapter-header">
-      <div class="chapter-title">{c['chapter_index']}. {c['title']}</div>
-      <div class="timestamp-badge">{c['start_time']} - {c['end_time']}</div>
+      <div class="chapter-title">Slide {s['slide_index']:02d}: {s['title']}</div>
+      <div class="timestamp-badge">{s['start_time']} - {s['end_time']}</div>
     </div>
     <div class="slide-wrapper">
-      <img src="{c['image_relative_path']}" alt="{c['title']}" loading="lazy" />
+      <img src="{s['image_relative_path']}" alt="{s['title']}" loading="lazy" />
     </div>
     <div class="gist-content">
       <ul>{gist_items}</ul>
       <div class="takeaway-tag">
-        <strong>Key Takeaway:</strong> {c['takeaway']}
+        <strong>Key Takeaway:</strong> {s['takeaway']}
       </div>
     </div>
   </div>""")
@@ -231,13 +270,14 @@ TAKEAWAY: <One bold actionable conclusion or insight>"""
       line-height: 1.65;
       padding: 40px 20px;
     }}
-    .container {{ max-width: 920px; margin: 0 auto; }}
+    .container {{ max-width: 960px; margin: 0 auto; }}
     header {{
       background: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 32px;
       margin-bottom: 24px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.02);
     }}
     .badge {{
       display: inline-block;
@@ -249,60 +289,68 @@ TAKEAWAY: <One bold actionable conclusion or insight>"""
       color: var(--primary);
       margin-bottom: 12px;
     }}
-    h1 {{ font-size: 1.85rem; font-weight: 700; margin-bottom: 8px; }}
+    h1 {{ font-size: 1.9rem; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.02em; }}
     .tldr-box {{
       background: var(--primary-soft);
       border-left: 4px solid var(--primary);
-      padding: 20px;
+      padding: 22px;
       border-radius: 0 var(--radius) var(--radius) 0;
-      margin-bottom: 32px;
+      margin-bottom: 36px;
     }}
     .chapter-card {{
       background: var(--card-bg);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 24px;
-      margin-bottom: 28px;
+      padding: 26px;
+      margin-bottom: 32px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.02);
     }}
     .chapter-header {{
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 14px;
+      gap: 12px;
     }}
-    .chapter-title {{ font-size: 1.2rem; font-weight: 700; }}
+    .chapter-title {{ font-size: 1.25rem; font-weight: 700; color: var(--text-main); }}
     .timestamp-badge {{
       font-size: 0.82rem;
       font-family: monospace;
-      padding: 4px 8px;
+      padding: 4px 10px;
       background: var(--highlight-bg);
       border-radius: 6px;
+      border: 1px solid var(--border);
     }}
     .slide-wrapper {{
       margin: 16px 0;
       border-radius: 8px;
       overflow: hidden;
       border: 1px solid var(--border);
+      background: #000;
     }}
-    .slide-wrapper img {{ width: 100%; display: block; }}
+    .slide-wrapper img {{ width: 100%; height: auto; display: block; }}
+    .gist-content {{ margin-top: 14px; font-size: 0.98rem; }}
+    .gist-content ul {{ padding-left: 20px; margin-bottom: 12px; }}
+    .gist-content li {{ margin-bottom: 6px; }}
     .takeaway-tag {{
       background: var(--highlight-bg);
       border-left: 3px solid var(--accent);
       padding: 10px 14px;
-      margin-top: 12px;
       border-radius: 0 6px 6px 0;
+      font-size: 0.92rem;
+      margin-top: 12px;
     }}
   </style>
 </head>
 <body>
 <div class="container">
   <header>
-    <span class="badge">AI Executive Brief (Ollama: {model})</span>
+    <span class="badge">Comprehensive AI Executive Brief (Ollama: {model})</span>
     <h1>{meeting_title}</h1>
-    <p style="color: var(--text-muted);">Duration: {meta.get('duration_str')} • Total Slides: {meta.get('total_slides')}</p>
+    <p style="color: var(--text-muted);">Duration: {meta.get('duration_str')} • Total Slides Documented: {len(slide_results)}</p>
   </header>
   <div class="tldr-box">
-    <h2 style="font-size: 1.1rem; color: var(--primary); margin-bottom: 6px;">Executive Overview (TL;DR)</h2>
+    <h2 style="font-size: 1.15rem; color: var(--primary); margin-bottom: 8px;">Executive Overview (TL;DR)</h2>
     <p>{tldr_text}</p>
   </div>
   {"".join(html_cards)}
@@ -314,23 +362,24 @@ TAKEAWAY: <One bold actionable conclusion or insight>"""
     with open(html_output_path, "w", encoding="utf-8") as f:
         f.write(html_content)
 
-    print(f"\n🎉 Successfully Generated AI Executive Briefs!")
+    print(f"\n🎉 Successfully Generated Detailed AI Executive Briefs!")
     print(f"📄 Markdown : {md_output_path}")
     print(f"🌐 HTML     : {html_output_path}")
+    print(f"🖼️  Documented {len(slide_results)} unique slides with images and gists.")
 
 def main():
     parser = argparse.ArgumentParser(description="Generate Executive Summary via Local Ollama")
     parser.add_argument("--metadata", required=True, help="Path to metadata.json generated by process_meeting.py")
     parser.add_argument("--model", default="llama3.2:latest", help="Ollama model name (default: llama3.2:latest)")
-    parser.add_argument("--chapters", type=int, default=7, help="Number of executive chapters to produce (default: 7)")
     parser.add_argument("--prefix", default="executive_summary_ollama", help="Output filename prefix (default: executive_summary_ollama)")
+    parser.add_argument("--all", action="store_true", help="Document literally all raw slides without coalescing animations")
     args = parser.parse_args()
 
     summarize_meeting_with_ollama(
         metadata_path=args.metadata,
         model=args.model,
-        target_chapters=args.chapters,
-        output_prefix=args.prefix
+        output_prefix=args.prefix,
+        keep_all=args.all
     )
 
 if __name__ == "__main__":

@@ -57,17 +57,30 @@ The analysis is anchored on **Bradley’s Effectiveness Model for Curriculum Dev
 
 ---
 
-### 3. Regional Proficiency Landscape (EF EPI 2021) [02:37 - 03:06]
+### 3. Regional Proficiency Overview (EF EPI 2021 Tiers) [02:37 - 03:06]
 
-![Country Rankings](frames/sample_meeting_frame_008_02m37s_to_03m06s.png)
+![Country Rankings Groups](frames/sample_meeting_frame_008_02m37s_to_03m06s.png)
 
 #### The Gist:
-The presentation details the official 2021 ranking table:
-* **Very High / High Proficiency:** **Singapore** ranks #1 in the region (and #4 globally with an 84-point score), followed by the **Philippines** (2nd) and **Malaysia** (3rd).
-* **Moderate to Low Bands:** Indonesia, Myanmar, and Vietnam sit in intermediate bands.
+The presentation introduces the official 2021 regional ranking classifications:
+* **Very High / High Proficiency:** **Singapore** ranks #1 in Southeast Asia (#4 globally with 84 points), followed by the **Philippines** (2nd) and **Malaysia** (3rd).
+* **Moderate to Low Bands:** Indonesia, Myanmar, and Vietnam occupy the middle-to-low bands.
 * **Very Low Proficiency Bands:** Thailand, Cambodia, and Laos placed in the lower tiers.
 
 > **Key Takeaway:** Singapore stands out as a global benchmark, while a significant gap separates the top 3 ASEAN nations from the rest of the bloc.
+
+---
+
+### 3B. Table 1: Detailed EF EPI Country Scores & Rankings [03:06 - 03:11]
+
+![Table 1 Contents](frames/sample_meeting_frame_009_03m06s_to_03m11s.png)
+
+#### The Gist:
+This slide displays the complete **Table 1** data matrix containing the verified national scores and benchmark ranks across participating ASEAN nations:
+* Displays the complete country-by-country breakdown for Singapore, Philippines, Malaysia, Vietnam, Indonesia, Myanmar, Cambodia, and Thailand.
+* Details the exact score distributions and notes the exclusion of non-participating nations (Brunei, Laos, Timor-Leste).
+
+> **Key Takeaway:** Provides the primary empirical baseline for comparing how English curricula impact national language outcomes.
 
 ---
 
