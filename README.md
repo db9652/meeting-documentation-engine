@@ -73,8 +73,8 @@ meeting_Documentation/
 └── output/                   # Generated meeting knowledge bases
     └── sample_meeting/
         ├── meeting_notes.md       # Full interleaved transcript with slides
-        ├── executive_summary.md   # High-level chapter-by-chapter brief (Markdown)
-        ├── executive_summary.html # Self-contained styled browser/PDF report
+        ├── executive_summary_ollama.md   # Pure CV-filtered AI Executive Brief (Markdown)
+        ├── executive_summary_ollama.html # Interactive styled browser/PDF report
         ├── metadata.json          # Structured dataset for Phase 2 RAG
         └── frames/                # Extracted, timestamp-labeled slide screenshots
             ├── sample_meeting_frame_001_00m00s_to_00m34s.png
@@ -143,11 +143,9 @@ To process any video and transcript, run:
 
 1. **`meeting_notes.md`**:
    Comprehensive reference document. Contains every detected slide with its active time window (`[MM:SS - MM:SS]`) and the complete, cleaned list of spoken dialogue points during that interval.
-2. **`executive_summary_curated.html` & `.md`**:
-   In-depth, curated executive brief featuring comparative benchmark matrices, detailed curriculum breakdowns, and high-resolution representative slide images.
-3. **`executive_summary_ollama.html` & `.md`**:
-   Automated, chapter-by-chapter executive brief synthesized 100% locally by **Ollama (`llama3.2`)** on your GPU.
-4. **`metadata.json`**:
+2. **`executive_summary_ollama.html` & `.md`**:
+   Automated, chapter-by-chapter executive brief synthesized 100% locally by **Ollama (`llama3.2`)** on your GPU using pure dynamic Computer Vision filtering (zero blanks, zero partial builds).
+3. **`metadata.json`**:
    Clean JSON manifest containing segment start/end seconds, relative image paths, and combined dialogue blocks. Acts as the ingestion source for Phase 2 semantic retrieval.
 
 ---

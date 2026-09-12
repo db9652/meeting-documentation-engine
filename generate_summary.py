@@ -497,13 +497,7 @@ TAKEAWAY: <Key actionable conclusion or observation>"""
     with open(html_output_path, "w", encoding="utf-8") as f:
         f.write(html_content)
 
-    # Sync default files
-    default_md = os.path.join(output_dir, "executive_summary.md")
-    default_html = os.path.join(output_dir, "executive_summary.html")
-    with open(default_md, "w", encoding="utf-8") as f:
-        f.write("\n".join(md_lines))
-    with open(default_html, "w", encoding="utf-8") as f:
-        f.write(html_content)
+    # Output files written via output_prefix
 
     print("\n" + "=" * 70)
     print("🎉 Successfully Generated Purely Dynamic AI Executive Briefs!")
