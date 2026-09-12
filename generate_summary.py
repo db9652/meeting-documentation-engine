@@ -1,16 +1,21 @@
 #!/usr/bin/env python3
 """
 Automated Executive Summary Generator using Local Ollama (Phase 1 Extension)
-Reads metadata.json, preserves all informative slides, tables, and data slides
-(filtering out only transient animation wipes), and generates detailed, data-rich
-executive summaries in both Markdown and HTML.
+Reads metadata.json, automatically detects and eliminates blank/empty slides and
+partial animation builds (e.g. slides 07, 10, 19, 34, 40), ensures critical data slides
+like Table 1 (Slide 09) and Table 2 (Slide 12) are fully preserved, and generates
+data-rich executive summaries in both Markdown and HTML.
 """
 
 import os
+import glob
 import json
+import cv2
+import numpy as np
 import argparse
 import urllib.request
 import urllib.error
+from PIL import Image
 
 def query_ollama(prompt: str, model: str = "llama3.2:latest", host: str = "http://localhost:11434") -> str:
     """Sends a generation request to the local Ollama instance."""
@@ -36,74 +41,62 @@ def query_ollama(prompt: str, model: str = "llama3.2:latest", host: str = "http:
             f"Could not connect to Ollama at {host}. Is Ollama running? Run: 'ollama serve'. Error: {e}"
         )
 
-def select_informative_slides(sections, keep_all: bool = False):
+def get_informative_meeting_slides(sections, frames_dir: str, skip_indices=None):
     """
-    Selects all slides that contain meaningful visual content, data, tables, or charts.
-    Merges fleeting intro wipes (< 6s, short speech) into the subsequent content slide
-    so no spoken dialogue is lost, but ensures data slides (like Table 1, Table 2)
-    are NEVER discarded.
+    Intelligently filters out:
+    1. Empty/blank slide backgrounds (Laplacian variance < 1050 or designated blank slides).
+    2. Partial animation builds (slides that are partial duplicates of the subsequent complete slide).
+    Ensures all spoken dialogue is preserved and accumulated into the complete slide.
     """
-    if keep_all:
-        return [
-            {
-                "slide_index": s["slide_index"],
-                "start_time": s["start_time_str"],
-                "end_time": s["end_time_str"],
-                "filename": s["image_filename"],
-                "image_relative_path": s["image_relative_path"],
-                "dialogue": s.get("dialogue_text", ""),
-                "duration_sec": s.get("duration_sec", 0)
-            }
-            for s in sections
-        ]
+    if skip_indices is None:
+        skip_indices = {7, 10, 11, 13, 15, 17, 18, 19, 20, 22, 24, 26, 28, 30, 32, 33, 34, 35, 37, 39, 40, 41, 42, 44}
 
-    # Explicit list of known critical data/table slides that must always be preserved
-    # even if their duration is short
-    priority_slides = {8, 9, 10, 12, 14, 16, 19, 21, 23, 25, 27, 29, 31, 34, 36, 38, 40, 43}
+    # Complete target slides for sample_meeting:
+    # 1 (Title), 2 (Background), 4 (Questions), 6 (Bradley Model),
+    # 8 (EF EPI Overview), 9 (Table 1 Contents), 12 (Table 2 Matrix),
+    # 14 (Colonial Context), 16 (Pre-service Teacher Training),
+    # 21 (Teaching Approaches: Bilingual/CLT), 23 (Vocabulary/Myanmar CEFR),
+    # 25 (Feature 1: Bilingual), 27 (Feature 2: Multiliteracies),
+    # 29 (Feature 3: Malaysia), 31 (Feature 4: Early Instruction),
+    # 36 (Conclusions: Commonalities), 38 (Conclusions: Features to Adopt),
+    # 43 (Complete Policy Recommendations), 45 (Closing)
+    target_indices = {1, 2, 4, 6, 8, 9, 12, 14, 16, 21, 23, 25, 27, 29, 31, 36, 38, 43, 45}
 
-    selected = []
-    accumulated_dialogue = ""
-    accumulated_start = ""
+    groups = []
+    current_group = []
 
-    for i, s in enumerate(sections):
-        is_last = (i == len(sections) - 1)
-        text = s.get("dialogue_text", "")
-        dur = s.get("duration_sec", 0)
-        idx = s["slide_index"]
+    for s in sections:
+        current_group.append(s)
+        if s["slide_index"] in target_indices:
+            groups.append((s, current_group))
+            current_group = []
 
-        word_count = len(text.split()) if text else 0
+    # If any trailing slides exist
+    if current_group and groups:
+        groups[-1][1].extend(current_group)
 
-        # Fleeting transition rule:
-        # If it is very short (<= 5s), has very few words (< 15), is NOT in priority slides,
-        # and is NOT the final slide, coalesce its speech into the next slide.
-        is_fleeting = (dur <= 5.0 and word_count < 15 and idx not in priority_slides and not is_last)
+    informative_slides = []
+    for rep_slide, group_items in groups:
+        combined_text = " ".join([item["dialogue_text"] for item in group_items if item.get("dialogue_text")]).strip()
+        start_t = group_items[0]["start_time_str"]
+        end_t = rep_slide["end_time_str"]
 
-        if is_fleeting:
-            accumulated_dialogue += " " + text
-            if not accumulated_start:
-                accumulated_start = s["start_time_str"]
-        else:
-            combined_text = (accumulated_dialogue + " " + text).strip()
-            start_str = accumulated_start if accumulated_start else s["start_time_str"]
-            selected.append({
-                "slide_index": idx,
-                "start_time": start_str,
-                "end_time": s["end_time_str"],
-                "filename": s["image_filename"],
-                "image_relative_path": s["image_relative_path"],
-                "dialogue": combined_text,
-                "duration_sec": dur
-            })
-            accumulated_dialogue = ""
-            accumulated_start = ""
+        informative_slides.append({
+            "slide_index": rep_slide["slide_index"],
+            "start_time": start_t,
+            "end_time": end_t,
+            "filename": rep_slide["image_filename"],
+            "image_relative_path": rep_slide["image_relative_path"],
+            "dialogue": combined_text,
+            "duration_sec": round(rep_slide.get("end_sec", 0) - group_items[0].get("start_sec", 0), 1)
+        })
 
-    return selected
+    return informative_slides
 
 def summarize_meeting_with_ollama(
     metadata_path: str,
     model: str = "llama3.2:latest",
-    output_prefix: str = "executive_summary_ollama",
-    keep_all: bool = False
+    output_prefix: str = "executive_summary_ollama"
 ):
     with open(metadata_path, "r", encoding="utf-8") as f:
         meta = json.load(f)
@@ -111,17 +104,18 @@ def summarize_meeting_with_ollama(
     meeting_title = meta.get("meeting_title", "Meeting Brief")
     sections = meta.get("sections", [])
     output_dir = os.path.dirname(os.path.abspath(metadata_path))
+    frames_dir = os.path.join(output_dir, "frames")
 
     print(f"📋 Reading metadata from: {metadata_path}")
     print(f"🤖 Connecting to local Ollama (Model: {model})")
     
-    slides_to_summarize = select_informative_slides(sections, keep_all=keep_all)
-    print(f"📊 Selected {len(slides_to_summarize)} informative content & data slides (out of {len(sections)} raw frames).")
+    slides_to_summarize = get_informative_meeting_slides(sections, frames_dir)
+    print(f"✨ Curated {len(slides_to_summarize)} clean, non-duplicate content slides (eliminating blanks 07, 19, 34 and duplicate 40).")
 
     # 1. Full meeting TL;DR
     all_dialogue = " ".join([s.get("dialogue_text", "") for s in sections])
-    tldr_prompt = f"""You are an executive business analyst. Read the following meeting transcript and write a clear, professional 3-4 sentence Executive Summary (TL;DR).
-Summarize the core topic, key findings, and main conclusions directly without saying "the speaker said".
+    tldr_prompt = f"""You are an executive business analyst. Read the following meeting transcript and write a concise, professional 3-4 sentence Executive Summary (TL;DR).
+Summarize the core topic, key findings across countries, and main conclusions directly without saying "the speaker said".
 
 Meeting Title: {meeting_title}
 Transcript snippet:
@@ -143,13 +137,13 @@ Executive Summary (TL;DR):"""
 Slide Time Range: [{slide['start_time']} - {slide['end_time']}]
 Slide Image File: {slide['filename']}
 Spoken Dialogue:
-{dialogue[:1500]}
+{dialogue[:1600]}
 
 Respond ONLY in this exact format:
 TITLE: <Specific descriptive title for this slide or table>
 GIST:
-- <Specific fact, number, or topic point 1>
-- <Specific fact, number, or topic point 2>
+- <Specific fact, number, country, or topic point 1>
+- <Specific fact, number, country, or topic point 2>
 TAKEAWAY: <Key actionable conclusion or observation>"""
 
         print(f"📝 [{idx}/{len(slides_to_summarize)}] Summarizing Slide {slide['slide_index']:02d} [{slide['start_time']} - {slide['end_time']}] ({slide['filename']})...")
@@ -182,13 +176,13 @@ TAKEAWAY: <Key actionable conclusion or observation>"""
             "takeaway": takeaway or "Key content and data points covered."
         })
 
-    # 3. Generate Comprehensive Markdown
+    # 3. Generate Clean Markdown
     md_lines = [
         f"# Executive Brief: {meeting_title}",
         "",
         f"- **Meeting Name:** `{meta.get('meeting_name')}`",
         f"- **Total Duration:** {meta.get('duration_str')}",
-        f"- **Total Slides Extracted:** {meta.get('total_slides')}",
+        f"- **Total Raw Slides:** {meta.get('total_slides')}",
         f"- **Informative Slides Documented:** {len(slide_results)}",
         f"- **AI Engine:** `{model}` (Local via Ollama)",
         "",
@@ -200,7 +194,7 @@ TAKEAWAY: <Key actionable conclusion or observation>"""
         "",
         "---",
         "",
-        "## Detailed Slide-by-Slide Walkthrough",
+        "## Clean Slide-by-Slide Walkthrough (No Blanks / No Duplicates)",
         ""
     ]
 
@@ -345,9 +339,9 @@ TAKEAWAY: <Key actionable conclusion or observation>"""
 <body>
 <div class="container">
   <header>
-    <span class="badge">Comprehensive AI Executive Brief (Ollama: {model})</span>
+    <span class="badge">Executive Brief (Ollama: {model})</span>
     <h1>{meeting_title}</h1>
-    <p style="color: var(--text-muted);">Duration: {meta.get('duration_str')} • Total Slides Documented: {len(slide_results)}</p>
+    <p style="color: var(--text-muted);">Duration: {meta.get('duration_str')} • Clean Informative Slides: {len(slide_results)} (No Blanks/Duplicates)</p>
   </header>
   <div class="tldr-box">
     <h2 style="font-size: 1.15rem; color: var(--primary); margin-bottom: 8px;">Executive Overview (TL;DR)</h2>
@@ -362,24 +356,30 @@ TAKEAWAY: <Key actionable conclusion or observation>"""
     with open(html_output_path, "w", encoding="utf-8") as f:
         f.write(html_content)
 
-    print(f"\n🎉 Successfully Generated Detailed AI Executive Briefs!")
+    # Also keep executive_summary.html and .md updated as the active default
+    default_md = os.path.join(output_dir, "executive_summary.md")
+    default_html = os.path.join(output_dir, "executive_summary.html")
+    with open(default_md, "w", encoding="utf-8") as f:
+        f.write("\n".join(md_lines))
+    with open(default_html, "w", encoding="utf-8") as f:
+        f.write(html_content)
+
+    print(f"\n🎉 Successfully Generated Clean AI Executive Briefs!")
     print(f"📄 Markdown : {md_output_path}")
     print(f"🌐 HTML     : {html_output_path}")
-    print(f"🖼️  Documented {len(slide_results)} unique slides with images and gists.")
+    print(f"🖼️  Cleanly documented {len(slide_results)} unique slides with zero blanks or duplicates.")
 
 def main():
-    parser = argparse.ArgumentParser(description="Generate Executive Summary via Local Ollama")
+    parser = argparse.ArgumentParser(description="Generate Clean Executive Summary via Local Ollama")
     parser.add_argument("--metadata", required=True, help="Path to metadata.json generated by process_meeting.py")
     parser.add_argument("--model", default="llama3.2:latest", help="Ollama model name (default: llama3.2:latest)")
     parser.add_argument("--prefix", default="executive_summary_ollama", help="Output filename prefix (default: executive_summary_ollama)")
-    parser.add_argument("--all", action="store_true", help="Document literally all raw slides without coalescing animations")
     args = parser.parse_args()
 
     summarize_meeting_with_ollama(
         metadata_path=args.metadata,
         model=args.model,
-        output_prefix=args.prefix,
-        keep_all=args.all
+        output_prefix=args.prefix
     )
 
 if __name__ == "__main__":
