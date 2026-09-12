@@ -1,0 +1,2172 @@
+{
+  "meeting_title": "International Conference Presentation: English Language Proficiency",
+  "meeting_name": "sample_meeting",
+  "duration_sec": 606.5,
+  "duration_str": "10:06",
+  "total_slides": 45,
+  "total_cues": 238,
+  "markdown_file": "meeting_notes.md",
+  "sections": [
+    {
+      "slide_index": 1,
+      "start_time_str": "00:00",
+      "end_time_str": "00:34",
+      "duration_sec": 34.0,
+      "image_filename": "sample_meeting_frame_001_00m00s_to_00m34s.png",
+      "image_relative_path": "frames/sample_meeting_frame_001_00m00s_to_00m34s.png",
+      "dialogue": [
+        {
+          "start_sec": 1.38,
+          "end_sec": 4.309,
+          "timestamp_str": "00:01",
+          "speaker": null,
+          "text": "good day everyone it is our pleasure to"
+        },
+        {
+          "start_sec": 4.319,
+          "end_sec": 5.749,
+          "timestamp_str": "00:04",
+          "speaker": null,
+          "text": "be part of this year's International"
+        },
+        {
+          "start_sec": 5.759,
+          "end_sec": 8.589,
+          "timestamp_str": "00:05",
+          "speaker": null,
+          "text": "Conference in Innovation and educational"
+        },
+        {
+          "start_sec": 8.599,
+          "end_sec": 10.73,
+          "timestamp_str": "00:08",
+          "speaker": null,
+          "text": "hosted by its prestigious open"
+        },
+        {
+          "start_sec": 10.74,
+          "end_sec": 13.49,
+          "timestamp_str": "00:10",
+          "speaker": null,
+          "text": "University in Thailand and it is indeed"
+        },
+        {
+          "start_sec": 13.5,
+          "end_sec": 15.11,
+          "timestamp_str": "00:13",
+          "speaker": null,
+          "text": "an honor for us to present in This"
+        },
+        {
+          "start_sec": 15.12,
+          "end_sec": 18.55,
+          "timestamp_str": "00:15",
+          "speaker": null,
+          "text": "Global platform our research is"
+        },
+        {
+          "start_sec": 18.56,
+          "end_sec": 21.23,
+          "timestamp_str": "00:18",
+          "speaker": null,
+          "text": "English language Proficiency curricula"
+        },
+        {
+          "start_sec": 21.24,
+          "end_sec": 23.689,
+          "timestamp_str": "00:21",
+          "speaker": null,
+          "text": "in Southeast Asian countries"
+        },
+        {
+          "start_sec": 23.699,
+          "end_sec": 25.67,
+          "timestamp_str": "00:23",
+          "speaker": null,
+          "text": "being proficient in the English language"
+        },
+        {
+          "start_sec": 25.68,
+          "end_sec": 28.79,
+          "timestamp_str": "00:25",
+          "speaker": null,
+          "text": "brings a number of global advantages and"
+        },
+        {
+          "start_sec": 28.8,
+          "end_sec": 30.95,
+          "timestamp_str": "00:28",
+          "speaker": null,
+          "text": "so English language proficiency has"
+        },
+        {
+          "start_sec": 30.96,
+          "end_sec": 33.59,
+          "timestamp_str": "00:30",
+          "speaker": null,
+          "text": "become one of our most primary concerns"
+        },
+        {
+          "start_sec": 33.6,
+          "end_sec": 36.41,
+          "timestamp_str": "00:33",
+          "speaker": null,
+          "text": "aligned with this an organization known"
+        }
+      ],
+      "dialogue_text": "good day everyone it is our pleasure to be part of this year's International Conference in Innovation and educational hosted by its prestigious open University in Thailand and it is indeed an honor for us to present in This Global platform our research is English language Proficiency curricula in Southeast Asian countries being proficient in the English language brings a number of global advantages and so English language proficiency has become one of our most primary concerns aligned with this an organization known"
+    },
+    {
+      "slide_index": 2,
+      "start_time_str": "00:34",
+      "end_time_str": "01:27",
+      "duration_sec": 53.0,
+      "image_filename": "sample_meeting_frame_002_00m34s_to_01m27s.png",
+      "image_relative_path": "frames/sample_meeting_frame_002_00m34s_to_01m27s.png",
+      "dialogue": [
+        {
+          "start_sec": 36.42,
+          "end_sec": 39.35,
+          "timestamp_str": "00:36",
+          "speaker": null,
+          "text": "as Education First or EF yearly measures"
+        },
+        {
+          "start_sec": 39.36,
+          "end_sec": 41.389,
+          "timestamp_str": "00:39",
+          "speaker": null,
+          "text": "the English language proficiency of"
+        },
+        {
+          "start_sec": 41.399,
+          "end_sec": 43.49,
+          "timestamp_str": "00:41",
+          "speaker": null,
+          "text": "different countries the globally"
+        },
+        {
+          "start_sec": 43.5,
+          "end_sec": 45.53,
+          "timestamp_str": "00:43",
+          "speaker": null,
+          "text": "published result is known as the EF"
+        },
+        {
+          "start_sec": 45.54,
+          "end_sec": 48.889,
+          "timestamp_str": "00:45",
+          "speaker": null,
+          "text": "English proficiency index or efepi in"
+        },
+        {
+          "start_sec": 48.899,
+          "end_sec": 50.75,
+          "timestamp_str": "00:48",
+          "speaker": null,
+          "text": "which almost all of the countries in"
+        },
+        {
+          "start_sec": 50.76,
+          "end_sec": 53.41,
+          "timestamp_str": "00:50",
+          "speaker": null,
+          "text": "Southeast Asia annually participate"
+        },
+        {
+          "start_sec": 53.42,
+          "end_sec": 56.45,
+          "timestamp_str": "00:53",
+          "speaker": null,
+          "text": "considering the annual results of efepi"
+        },
+        {
+          "start_sec": 56.46,
+          "end_sec": 58.67,
+          "timestamp_str": "00:56",
+          "speaker": null,
+          "text": "we have observed that they are Southeast"
+        },
+        {
+          "start_sec": 58.68,
+          "end_sec": 60.709,
+          "timestamp_str": "00:58",
+          "speaker": null,
+          "text": "Asian countries which are able to"
+        },
+        {
+          "start_sec": 60.719,
+          "end_sec": 62.689,
+          "timestamp_str": "01:00",
+          "speaker": null,
+          "text": "maintain their high or very high"
+        },
+        {
+          "start_sec": 62.699,
+          "end_sec": 65.929,
+          "timestamp_str": "01:02",
+          "speaker": null,
+          "text": "Proficiency in the language however it"
+        },
+        {
+          "start_sec": 65.939,
+          "end_sec": 67.789,
+          "timestamp_str": "01:05",
+          "speaker": null,
+          "text": "is also notable that there are countries"
+        },
+        {
+          "start_sec": 67.799,
+          "end_sec": 70.25,
+          "timestamp_str": "01:07",
+          "speaker": null,
+          "text": "in Southeast Asia which have been in the"
+        },
+        {
+          "start_sec": 70.26,
+          "end_sec": 72.53,
+          "timestamp_str": "01:10",
+          "speaker": null,
+          "text": "low or very low proficiency bands over"
+        },
+        {
+          "start_sec": 72.53999999999999,
+          "end_sec": 75.469,
+          "timestamp_str": "01:12",
+          "speaker": null,
+          "text": "the course of years"
+        },
+        {
+          "start_sec": 75.479,
+          "end_sec": 78.10900000000001,
+          "timestamp_str": "01:15",
+          "speaker": null,
+          "text": "hence with the researchers decided to"
+        },
+        {
+          "start_sec": 78.119,
+          "end_sec": 80.149,
+          "timestamp_str": "01:18",
+          "speaker": null,
+          "text": "conduct the study examining the English"
+        },
+        {
+          "start_sec": 80.15899999999999,
+          "end_sec": 82.60900000000001,
+          "timestamp_str": "01:20",
+          "speaker": null,
+          "text": "language proficiency curriculum among"
+        },
+        {
+          "start_sec": 82.619,
+          "end_sec": 83.95,
+          "timestamp_str": "01:22",
+          "speaker": null,
+          "text": "the Southeast Asian countries"
+        },
+        {
+          "start_sec": 83.96000000000001,
+          "end_sec": 86.21000000000001,
+          "timestamp_str": "01:23",
+          "speaker": null,
+          "text": "specifically we sought to answer the"
+        },
+        {
+          "start_sec": 86.22,
+          "end_sec": 90.10900000000001,
+          "timestamp_str": "01:26",
+          "speaker": null,
+          "text": "following questions"
+        }
+      ],
+      "dialogue_text": "as Education First or EF yearly measures the English language proficiency of different countries the globally published result is known as the EF English proficiency index or efepi in which almost all of the countries in Southeast Asia annually participate considering the annual results of efepi we have observed that they are Southeast Asian countries which are able to maintain their high or very high Proficiency in the language however it is also notable that there are countries in Southeast Asia which have been in the low or very low proficiency bands over the course of years hence with the researchers decided to conduct the study examining the English language proficiency curriculum among the Southeast Asian countries specifically we sought to answer the following questions"
+    },
+    {
+      "slide_index": 3,
+      "start_time_str": "01:27",
+      "end_time_str": "01:32",
+      "duration_sec": 5.0,
+      "image_filename": "sample_meeting_frame_003_01m27s_to_01m32s.png",
+      "image_relative_path": "frames/sample_meeting_frame_003_01m27s_to_01m32s.png",
+      "dialogue": [
+        {
+          "start_sec": 90.119,
+          "end_sec": 92.21000000000001,
+          "timestamp_str": "01:30",
+          "speaker": null,
+          "text": "one tell me the English language"
+        }
+      ],
+      "dialogue_text": "one tell me the English language"
+    },
+    {
+      "slide_index": 4,
+      "start_time_str": "01:32",
+      "end_time_str": "01:57",
+      "duration_sec": 25.0,
+      "image_filename": "sample_meeting_frame_004_01m32s_to_01m57s.png",
+      "image_relative_path": "frames/sample_meeting_frame_004_01m32s_to_01m57s.png",
+      "dialogue": [
+        {
+          "start_sec": 92.22,
+          "end_sec": 94.55,
+          "timestamp_str": "01:32",
+          "speaker": null,
+          "text": "proficiency level of Southeast Asian"
+        },
+        {
+          "start_sec": 94.56,
+          "end_sec": 96.83,
+          "timestamp_str": "01:34",
+          "speaker": null,
+          "text": "countries be described based on the EF"
+        },
+        {
+          "start_sec": 96.84,
+          "end_sec": 100.969,
+          "timestamp_str": "01:36",
+          "speaker": null,
+          "text": "English proficiency index 2021 So What"
+        },
+        {
+          "start_sec": 100.979,
+          "end_sec": 103.069,
+          "timestamp_str": "01:40",
+          "speaker": null,
+          "text": "observations can be seen in the English"
+        },
+        {
+          "start_sec": 103.07900000000001,
+          "end_sec": 105.289,
+          "timestamp_str": "01:43",
+          "speaker": null,
+          "text": "education curriculum among the Southeast"
+        },
+        {
+          "start_sec": 105.299,
+          "end_sec": 108.289,
+          "timestamp_str": "01:45",
+          "speaker": null,
+          "text": "Asian countries three what are the other"
+        },
+        {
+          "start_sec": 108.299,
+          "end_sec": 110.749,
+          "timestamp_str": "01:48",
+          "speaker": null,
+          "text": "significant features of curricula in"
+        },
+        {
+          "start_sec": 110.759,
+          "end_sec": 112.249,
+          "timestamp_str": "01:50",
+          "speaker": null,
+          "text": "Southeast Asian countries which"
+        },
+        {
+          "start_sec": 112.259,
+          "end_sec": 114.469,
+          "timestamp_str": "01:52",
+          "speaker": null,
+          "text": "contribute in producing citizens with"
+        },
+        {
+          "start_sec": 114.479,
+          "end_sec": 117.88900000000001,
+          "timestamp_str": "01:54",
+          "speaker": null,
+          "text": "high English proficiency level"
+        }
+      ],
+      "dialogue_text": "proficiency level of Southeast Asian countries be described based on the EF English proficiency index 2021 So What observations can be seen in the English education curriculum among the Southeast Asian countries three what are the other significant features of curricula in Southeast Asian countries which contribute in producing citizens with high English proficiency level"
+    },
+    {
+      "slide_index": 5,
+      "start_time_str": "01:57",
+      "end_time_str": "02:02",
+      "duration_sec": 5.0,
+      "image_filename": "sample_meeting_frame_005_01m57s_to_02m02s.png",
+      "image_relative_path": "frames/sample_meeting_frame_005_01m57s_to_02m02s.png",
+      "dialogue": [
+        {
+          "start_sec": 117.899,
+          "end_sec": 121.37,
+          "timestamp_str": "01:57",
+          "speaker": null,
+          "text": "in this study we mainly based our data"
+        },
+        {
+          "start_sec": 121.38,
+          "end_sec": 123.77,
+          "timestamp_str": "02:01",
+          "speaker": null,
+          "text": "and conclusions and the results of EF"
+        }
+      ],
+      "dialogue_text": "in this study we mainly based our data and conclusions and the results of EF"
+    },
+    {
+      "slide_index": 6,
+      "start_time_str": "02:02",
+      "end_time_str": "02:32",
+      "duration_sec": 30.0,
+      "image_filename": "sample_meeting_frame_006_02m02s_to_02m32s.png",
+      "image_relative_path": "frames/sample_meeting_frame_006_02m02s_to_02m32s.png",
+      "dialogue": [
+        {
+          "start_sec": 123.78,
+          "end_sec": 127.67,
+          "timestamp_str": "02:03",
+          "speaker": null,
+          "text": "Epi 2021 Accord on the on the theory of"
+        },
+        {
+          "start_sec": 127.68,
+          "end_sec": 130.13,
+          "timestamp_str": "02:07",
+          "speaker": null,
+          "text": "Bradley about Effectiveness model for"
+        },
+        {
+          "start_sec": 130.14,
+          "end_sec": 132.17,
+          "timestamp_str": "02:10",
+          "speaker": null,
+          "text": "curriculum development indicators we"
+        },
+        {
+          "start_sec": 132.18,
+          "end_sec": 134.089,
+          "timestamp_str": "02:12",
+          "speaker": null,
+          "text": "examine the curricular Implement that"
+        },
+        {
+          "start_sec": 134.099,
+          "end_sec": 135.949,
+          "timestamp_str": "02:14",
+          "speaker": null,
+          "text": "implemented at this five years back"
+        },
+        {
+          "start_sec": 135.959,
+          "end_sec": 139.61,
+          "timestamp_str": "02:15",
+          "speaker": null,
+          "text": "since the data of EF Epi 2021 were"
+        },
+        {
+          "start_sec": 139.62,
+          "end_sec": 141.77,
+          "timestamp_str": "02:19",
+          "speaker": null,
+          "text": "likely the result of an English"
+        },
+        {
+          "start_sec": 141.78,
+          "end_sec": 143.869,
+          "timestamp_str": "02:21",
+          "speaker": null,
+          "text": "curriculum implemented by a certain"
+        },
+        {
+          "start_sec": 143.879,
+          "end_sec": 146.57,
+          "timestamp_str": "02:23",
+          "speaker": null,
+          "text": "country at least five years ago to"
+        },
+        {
+          "start_sec": 146.57999999999998,
+          "end_sec": 148.55,
+          "timestamp_str": "02:26",
+          "speaker": null,
+          "text": "gather the data from this study the"
+        },
+        {
+          "start_sec": 148.56,
+          "end_sec": 150.22899999999998,
+          "timestamp_str": "02:28",
+          "speaker": null,
+          "text": "researchers used the data mining"
+        },
+        {
+          "start_sec": 150.239,
+          "end_sec": 152.57,
+          "timestamp_str": "02:30",
+          "speaker": null,
+          "text": "approach"
+        }
+      ],
+      "dialogue_text": "Epi 2021 Accord on the on the theory of Bradley about Effectiveness model for curriculum development indicators we examine the curricular Implement that implemented at this five years back since the data of EF Epi 2021 were likely the result of an English curriculum implemented by a certain country at least five years ago to gather the data from this study the researchers used the data mining approach"
+    },
+    {
+      "slide_index": 7,
+      "start_time_str": "02:32",
+      "end_time_str": "02:37",
+      "duration_sec": 5.0,
+      "image_filename": "sample_meeting_frame_007_02m32s_to_02m37s.png",
+      "image_relative_path": "frames/sample_meeting_frame_007_02m32s_to_02m37s.png",
+      "dialogue": [
+        {
+          "start_sec": 152.57999999999998,
+          "end_sec": 155.809,
+          "timestamp_str": "02:32",
+          "speaker": null,
+          "text": "for the results of the study you can now"
+        },
+        {
+          "start_sec": 155.81900000000002,
+          "end_sec": 157.97,
+          "timestamp_str": "02:35",
+          "speaker": null,
+          "text": "see on your screen a table which shows"
+        }
+      ],
+      "dialogue_text": "for the results of the study you can now see on your screen a table which shows"
+    },
+    {
+      "slide_index": 8,
+      "start_time_str": "02:37",
+      "end_time_str": "03:06",
+      "duration_sec": 29.0,
+      "image_filename": "sample_meeting_frame_008_02m37s_to_03m06s.png",
+      "image_relative_path": "frames/sample_meeting_frame_008_02m37s_to_03m06s.png",
+      "dialogue": [
+        {
+          "start_sec": 157.98,
+          "end_sec": 160.72899999999998,
+          "timestamp_str": "02:37",
+          "speaker": null,
+          "text": "the result of aftpi of Southeast Asian"
+        },
+        {
+          "start_sec": 160.739,
+          "end_sec": 164.27,
+          "timestamp_str": "02:40",
+          "speaker": null,
+          "text": "countries in 2021. Singapore possessed a"
+        },
+        {
+          "start_sec": 164.28,
+          "end_sec": 166.27,
+          "timestamp_str": "02:44",
+          "speaker": null,
+          "text": "very high level of English proficiency"
+        },
+        {
+          "start_sec": 166.28,
+          "end_sec": 168.77,
+          "timestamp_str": "02:46",
+          "speaker": null,
+          "text": "Philippines and Malaysia with high level"
+        },
+        {
+          "start_sec": 168.78,
+          "end_sec": 171.53,
+          "timestamp_str": "02:48",
+          "speaker": null,
+          "text": "of proficiency Vietnam and Indonesia"
+        },
+        {
+          "start_sec": 171.54,
+          "end_sec": 173.69,
+          "timestamp_str": "02:51",
+          "speaker": null,
+          "text": "with low proficiency while Myanmar"
+        },
+        {
+          "start_sec": 173.7,
+          "end_sec": 176.089,
+          "timestamp_str": "02:53",
+          "speaker": null,
+          "text": "Cambodia and Thailand with very low"
+        },
+        {
+          "start_sec": 176.099,
+          "end_sec": 179.32999999999998,
+          "timestamp_str": "02:56",
+          "speaker": null,
+          "text": "proficiency Brunei Laos and Timor Lester"
+        },
+        {
+          "start_sec": 179.34,
+          "end_sec": 181.25,
+          "timestamp_str": "02:59",
+          "speaker": null,
+          "text": "were not included in the table because"
+        },
+        {
+          "start_sec": 181.26,
+          "end_sec": 183.35,
+          "timestamp_str": "03:01",
+          "speaker": null,
+          "text": "they were not able to participate in"
+        },
+        {
+          "start_sec": 183.36,
+          "end_sec": 186.369,
+          "timestamp_str": "03:03",
+          "speaker": null,
+          "text": "eseti 2024."
+        }
+      ],
+      "dialogue_text": "the result of aftpi of Southeast Asian countries in 2021. Singapore possessed a very high level of English proficiency Philippines and Malaysia with high level of proficiency Vietnam and Indonesia with low proficiency while Myanmar Cambodia and Thailand with very low proficiency Brunei Laos and Timor Lester were not included in the table because they were not able to participate in eseti 2024."
+    },
+    {
+      "slide_index": 9,
+      "start_time_str": "03:06",
+      "end_time_str": "03:11",
+      "duration_sec": 5.0,
+      "image_filename": "sample_meeting_frame_009_03m06s_to_03m11s.png",
+      "image_relative_path": "frames/sample_meeting_frame_009_03m06s_to_03m11s.png",
+      "dialogue": [
+        {
+          "start_sec": 186.379,
+          "end_sec": 189.47,
+          "timestamp_str": "03:06",
+          "speaker": null,
+          "text": "the next table shows the list of 11"
+        },
+        {
+          "start_sec": 189.48,
+          "end_sec": 192.05,
+          "timestamp_str": "03:09",
+          "speaker": null,
+          "text": "Southeast Asian countries as well as the"
+        }
+      ],
+      "dialogue_text": "the next table shows the list of 11 Southeast Asian countries as well as the"
+    },
+    {
+      "slide_index": 10,
+      "start_time_str": "03:11",
+      "end_time_str": "03:20",
+      "duration_sec": 9.0,
+      "image_filename": "sample_meeting_frame_010_03m11s_to_03m20s.png",
+      "image_relative_path": "frames/sample_meeting_frame_010_03m11s_to_03m20s.png",
+      "dialogue": [
+        {
+          "start_sec": 192.06,
+          "end_sec": 194.809,
+          "timestamp_str": "03:12",
+          "speaker": null,
+          "text": "starting level of instruction and number"
+        },
+        {
+          "start_sec": 194.819,
+          "end_sec": 197.39,
+          "timestamp_str": "03:14",
+          "speaker": null,
+          "text": "of teaching hours implemented by their"
+        },
+        {
+          "start_sec": 197.4,
+          "end_sec": 199.67000000000002,
+          "timestamp_str": "03:17",
+          "speaker": null,
+          "text": "respective English curricula"
+        },
+        {
+          "start_sec": 199.68,
+          "end_sec": 201.589,
+          "timestamp_str": "03:19",
+          "speaker": null,
+          "text": "six countries started their English"
+        }
+      ],
+      "dialogue_text": "starting level of instruction and number of teaching hours implemented by their respective English curricula six countries started their English"
+    },
+    {
+      "slide_index": 11,
+      "start_time_str": "03:20",
+      "end_time_str": "03:25",
+      "duration_sec": 5.0,
+      "image_filename": "sample_meeting_frame_011_03m20s_to_03m25s.png",
+      "image_relative_path": "frames/sample_meeting_frame_011_03m20s_to_03m25s.png",
+      "dialogue": [
+        {
+          "start_sec": 201.599,
+          "end_sec": 204.41,
+          "timestamp_str": "03:21",
+          "speaker": null,
+          "text": "instruction at grade one and they were"
+        },
+        {
+          "start_sec": 204.42000000000002,
+          "end_sec": 207.17000000000002,
+          "timestamp_str": "03:24",
+          "speaker": null,
+          "text": "Singapore the Philippines Malaysia"
+        }
+      ],
+      "dialogue_text": "instruction at grade one and they were Singapore the Philippines Malaysia"
+    },
+    {
+      "slide_index": 12,
+      "start_time_str": "03:25",
+      "end_time_str": "04:28",
+      "duration_sec": 63.0,
+      "image_filename": "sample_meeting_frame_012_03m25s_to_04m28s.png",
+      "image_relative_path": "frames/sample_meeting_frame_012_03m25s_to_04m28s.png",
+      "dialogue": [
+        {
+          "start_sec": 207.18,
+          "end_sec": 210.53,
+          "timestamp_str": "03:27",
+          "speaker": null,
+          "text": "Myanmar Thailand and Brunei four"
+        },
+        {
+          "start_sec": 210.54,
+          "end_sec": 212.089,
+          "timestamp_str": "03:30",
+          "speaker": null,
+          "text": "countries started their English"
+        },
+        {
+          "start_sec": 212.099,
+          "end_sec": 214.91,
+          "timestamp_str": "03:32",
+          "speaker": null,
+          "text": "instruction at grade seven and they were"
+        },
+        {
+          "start_sec": 214.92000000000002,
+          "end_sec": 219.29,
+          "timestamp_str": "03:34",
+          "speaker": null,
+          "text": "Indonesia Cambodia Laos and timor-leste"
+        },
+        {
+          "start_sec": 219.3,
+          "end_sec": 222.17000000000002,
+          "timestamp_str": "03:39",
+          "speaker": null,
+          "text": "meanwhile Vietnam was the only one"
+        },
+        {
+          "start_sec": 222.18,
+          "end_sec": 224.03,
+          "timestamp_str": "03:42",
+          "speaker": null,
+          "text": "country which started its English"
+        },
+        {
+          "start_sec": 224.04,
+          "end_sec": 227.21,
+          "timestamp_str": "03:44",
+          "speaker": null,
+          "text": "education at grade 3."
+        },
+        {
+          "start_sec": 227.22,
+          "end_sec": 229.369,
+          "timestamp_str": "03:47",
+          "speaker": null,
+          "text": "the table also shows that the number of"
+        },
+        {
+          "start_sec": 229.379,
+          "end_sec": 231.22899999999998,
+          "timestamp_str": "03:49",
+          "speaker": null,
+          "text": "teaching hours among Southeast Asian"
+        },
+        {
+          "start_sec": 231.239,
+          "end_sec": 233.93,
+          "timestamp_str": "03:51",
+          "speaker": null,
+          "text": "countries varied but it is notable that"
+        },
+        {
+          "start_sec": 233.94,
+          "end_sec": 236.63,
+          "timestamp_str": "03:53",
+          "speaker": null,
+          "text": "relatively those countries which started"
+        },
+        {
+          "start_sec": 236.64,
+          "end_sec": 238.91,
+          "timestamp_str": "03:56",
+          "speaker": null,
+          "text": "their English education at an earlier"
+        },
+        {
+          "start_sec": 238.92000000000002,
+          "end_sec": 241.61,
+          "timestamp_str": "03:58",
+          "speaker": null,
+          "text": "level and taught the language within a"
+        },
+        {
+          "start_sec": 241.62,
+          "end_sec": 243.83,
+          "timestamp_str": "04:01",
+          "speaker": null,
+          "text": "higher number of teaching hours are"
+        },
+        {
+          "start_sec": 243.84,
+          "end_sec": 245.57,
+          "timestamp_str": "04:03",
+          "speaker": null,
+          "text": "those countries that also achieved"
+        },
+        {
+          "start_sec": 245.58,
+          "end_sec": 247.99,
+          "timestamp_str": "04:05",
+          "speaker": null,
+          "text": "higher level of English proficiency"
+        },
+        {
+          "start_sec": 248.0,
+          "end_sec": 250.85,
+          "timestamp_str": "04:08",
+          "speaker": null,
+          "text": "nevertheless it can be noticed that"
+        },
+        {
+          "start_sec": 250.86,
+          "end_sec": 253.07,
+          "timestamp_str": "04:10",
+          "speaker": null,
+          "text": "despite teaching English at an earlier"
+        },
+        {
+          "start_sec": 253.08,
+          "end_sec": 256.43,
+          "timestamp_str": "04:13",
+          "speaker": null,
+          "text": "level Thailand and Myanmar were still in"
+        },
+        {
+          "start_sec": 256.44,
+          "end_sec": 259.009,
+          "timestamp_str": "04:16",
+          "speaker": null,
+          "text": "the lower proficiency band in this case"
+        },
+        {
+          "start_sec": 259.019,
+          "end_sec": 261.65,
+          "timestamp_str": "04:19",
+          "speaker": null,
+          "text": "we have to consider other factors which"
+        },
+        {
+          "start_sec": 261.66,
+          "end_sec": 264.17,
+          "timestamp_str": "04:21",
+          "speaker": null,
+          "text": "might have influenced the data such as"
+        },
+        {
+          "start_sec": 264.18,
+          "end_sec": 266.21,
+          "timestamp_str": "04:24",
+          "speaker": null,
+          "text": "the country's Colonial history and"
+        },
+        {
+          "start_sec": 266.22,
+          "end_sec": 268.67,
+          "timestamp_str": "04:26",
+          "speaker": null,
+          "text": "teachers expertise"
+        }
+      ],
+      "dialogue_text": "Myanmar Thailand and Brunei four countries started their English instruction at grade seven and they were Indonesia Cambodia Laos and timor-leste meanwhile Vietnam was the only one country which started its English education at grade 3. the table also shows that the number of teaching hours among Southeast Asian countries varied but it is notable that relatively those countries which started their English education at an earlier level and taught the language within a higher number of teaching hours are those countries that also achieved higher level of English proficiency nevertheless it can be noticed that despite teaching English at an earlier level Thailand and Myanmar were still in the lower proficiency band in this case we have to consider other factors which might have influenced the data such as the country's Colonial history and teachers expertise"
+    },
+    {
+      "slide_index": 13,
+      "start_time_str": "04:28",
+      "end_time_str": "04:33",
+      "duration_sec": 5.0,
+      "image_filename": "sample_meeting_frame_013_04m28s_to_04m33s.png",
+      "image_relative_path": "frames/sample_meeting_frame_013_04m28s_to_04m33s.png",
+      "dialogue": [
+        {
+          "start_sec": 268.68,
+          "end_sec": 273.37,
+          "timestamp_str": "04:28",
+          "speaker": null,
+          "text": "foreign"
+        }
+      ],
+      "dialogue_text": "foreign"
+    },
+    {
+      "slide_index": 14,
+      "start_time_str": "04:33",
+      "end_time_str": "04:54",
+      "duration_sec": 21.0,
+      "image_filename": "sample_meeting_frame_014_04m33s_to_04m54s.png",
+      "image_relative_path": "frames/sample_meeting_frame_014_04m33s_to_04m54s.png",
+      "dialogue": [
+        {
+          "start_sec": 273.38,
+          "end_sec": 276.29,
+          "timestamp_str": "04:33",
+          "speaker": null,
+          "text": "was not colonized by English-speaking"
+        },
+        {
+          "start_sec": 276.3,
+          "end_sec": 278.15,
+          "timestamp_str": "04:36",
+          "speaker": null,
+          "text": "countries unlike the Philippines and"
+        },
+        {
+          "start_sec": 278.15999999999997,
+          "end_sec": 281.15,
+          "timestamp_str": "04:38",
+          "speaker": null,
+          "text": "Singapore in Myanmar Burmese is the main"
+        },
+        {
+          "start_sec": 281.15999999999997,
+          "end_sec": 283.61,
+          "timestamp_str": "04:41",
+          "speaker": null,
+          "text": "language and with this studies revealed"
+        },
+        {
+          "start_sec": 283.62,
+          "end_sec": 285.409,
+          "timestamp_str": "04:43",
+          "speaker": null,
+          "text": "that additional difficulties are"
+        },
+        {
+          "start_sec": 285.419,
+          "end_sec": 287.629,
+          "timestamp_str": "04:45",
+          "speaker": null,
+          "text": "associated with the acquisition of the"
+        },
+        {
+          "start_sec": 287.639,
+          "end_sec": 289.49,
+          "timestamp_str": "04:47",
+          "speaker": null,
+          "text": "English language"
+        },
+        {
+          "start_sec": 289.5,
+          "end_sec": 292.61,
+          "timestamp_str": "04:49",
+          "speaker": null,
+          "text": "moreover Myanmar did not offer"
+        },
+        {
+          "start_sec": 292.62,
+          "end_sec": 294.77,
+          "timestamp_str": "04:52",
+          "speaker": null,
+          "text": "specialized courses as part of their"
+        }
+      ],
+      "dialogue_text": "was not colonized by English-speaking countries unlike the Philippines and Singapore in Myanmar Burmese is the main language and with this studies revealed that additional difficulties are associated with the acquisition of the English language moreover Myanmar did not offer specialized courses as part of their"
+    },
+    {
+      "slide_index": 15,
+      "start_time_str": "04:54",
+      "end_time_str": "04:59",
+      "duration_sec": 5.0,
+      "image_filename": "sample_meeting_frame_015_04m54s_to_04m59s.png",
+      "image_relative_path": "frames/sample_meeting_frame_015_04m54s_to_04m59s.png",
+      "dialogue": [
+        {
+          "start_sec": 294.78,
+          "end_sec": 297.409,
+          "timestamp_str": "04:54",
+          "speaker": null,
+          "text": "press service teacher education this"
+        },
+        {
+          "start_sec": 297.419,
+          "end_sec": 299.57,
+          "timestamp_str": "04:57",
+          "speaker": null,
+          "text": "means that student teachers could not"
+        }
+      ],
+      "dialogue_text": "press service teacher education this means that student teachers could not"
+    },
+    {
+      "slide_index": 16,
+      "start_time_str": "04:59",
+      "end_time_str": "05:39",
+      "duration_sec": 40.0,
+      "image_filename": "sample_meeting_frame_016_04m59s_to_05m39s.png",
+      "image_relative_path": "frames/sample_meeting_frame_016_04m59s_to_05m39s.png",
+      "dialogue": [
+        {
+          "start_sec": 299.58,
+          "end_sec": 302.09,
+          "timestamp_str": "04:59",
+          "speaker": null,
+          "text": "focus on attained expertise in a"
+        },
+        {
+          "start_sec": 302.1,
+          "end_sec": 305.03,
+          "timestamp_str": "05:02",
+          "speaker": null,
+          "text": "particular subject such as English in"
+        },
+        {
+          "start_sec": 305.04,
+          "end_sec": 307.43,
+          "timestamp_str": "05:05",
+          "speaker": null,
+          "text": "Thailand there were also a limited"
+        },
+        {
+          "start_sec": 307.44,
+          "end_sec": 309.65,
+          "timestamp_str": "05:07",
+          "speaker": null,
+          "text": "number of English teachers so some"
+        },
+        {
+          "start_sec": 309.66,
+          "end_sec": 311.99,
+          "timestamp_str": "05:09",
+          "speaker": null,
+          "text": "teachers were forced to teach Concepts"
+        },
+        {
+          "start_sec": 312.0,
+          "end_sec": 314.21,
+          "timestamp_str": "05:12",
+          "speaker": null,
+          "text": "beyond their expertise for instance"
+        },
+        {
+          "start_sec": 314.22,
+          "end_sec": 316.79,
+          "timestamp_str": "05:14",
+          "speaker": null,
+          "text": "reports shows that some English teachers"
+        },
+        {
+          "start_sec": 316.8,
+          "end_sec": 319.37,
+          "timestamp_str": "05:16",
+          "speaker": null,
+          "text": "were 11 years old and Below were forced"
+        },
+        {
+          "start_sec": 319.38,
+          "end_sec": 322.73,
+          "timestamp_str": "05:19",
+          "speaker": null,
+          "text": "to teach students age 15 to 17 but in"
+        },
+        {
+          "start_sec": 322.74,
+          "end_sec": 325.67,
+          "timestamp_str": "05:22",
+          "speaker": null,
+          "text": "2016 kailan collaborated with the"
+        },
+        {
+          "start_sec": 325.68,
+          "end_sec": 327.71,
+          "timestamp_str": "05:25",
+          "speaker": null,
+          "text": "British Council and launched a training"
+        },
+        {
+          "start_sec": 327.72,
+          "end_sec": 329.45,
+          "timestamp_str": "05:27",
+          "speaker": null,
+          "text": "program which including improves the"
+        },
+        {
+          "start_sec": 329.46,
+          "end_sec": 331.37,
+          "timestamp_str": "05:29",
+          "speaker": null,
+          "text": "expertise and strategies of English"
+        },
+        {
+          "start_sec": 331.38,
+          "end_sec": 333.71,
+          "timestamp_str": "05:31",
+          "speaker": null,
+          "text": "speakers in Thailand by training"
+        },
+        {
+          "start_sec": 333.72,
+          "end_sec": 336.05,
+          "timestamp_str": "05:33",
+          "speaker": null,
+          "text": "selected teachers who consequently will"
+        },
+        {
+          "start_sec": 336.06,
+          "end_sec": 341.39,
+          "timestamp_str": "05:36",
+          "speaker": null,
+          "text": "train the other teachers"
+        }
+      ],
+      "dialogue_text": "focus on attained expertise in a particular subject such as English in Thailand there were also a limited number of English teachers so some teachers were forced to teach Concepts beyond their expertise for instance reports shows that some English teachers were 11 years old and Below were forced to teach students age 15 to 17 but in 2016 kailan collaborated with the British Council and launched a training program which including improves the expertise and strategies of English speakers in Thailand by training selected teachers who consequently will train the other teachers"
+    },
+    {
+      "slide_index": 17,
+      "start_time_str": "05:39",
+      "end_time_str": "05:44",
+      "duration_sec": 5.0,
+      "image_filename": "sample_meeting_frame_017_05m39s_to_05m44s.png",
+      "image_relative_path": "frames/sample_meeting_frame_017_05m39s_to_05m44s.png",
+      "dialogue": [
+        {
+          "start_sec": 341.4,
+          "end_sec": 344.33,
+          "timestamp_str": "05:41",
+          "speaker": null,
+          "text": "in terms of teaching approach Singapore"
+        }
+      ],
+      "dialogue_text": "in terms of teaching approach Singapore"
+    },
+    {
+      "slide_index": 18,
+      "start_time_str": "05:44",
+      "end_time_str": "05:49",
+      "duration_sec": 5.0,
+      "image_filename": "sample_meeting_frame_018_05m44s_to_05m49s.png",
+      "image_relative_path": "frames/sample_meeting_frame_018_05m44s_to_05m49s.png",
+      "dialogue": [
+        {
+          "start_sec": 344.34000000000003,
+          "end_sec": 346.55,
+          "timestamp_str": "05:44",
+          "speaker": null,
+          "text": "Thailand and Brunei implemented the"
+        },
+        {
+          "start_sec": 346.56,
+          "end_sec": 349.01,
+          "timestamp_str": "05:46",
+          "speaker": null,
+          "text": "bilingual education system the Republic"
+        }
+      ],
+      "dialogue_text": "Thailand and Brunei implemented the bilingual education system the Republic"
+    },
+    {
+      "slide_index": 19,
+      "start_time_str": "05:49",
+      "end_time_str": "05:59",
+      "duration_sec": 10.0,
+      "image_filename": "sample_meeting_frame_019_05m49s_to_05m59s.png",
+      "image_relative_path": "frames/sample_meeting_frame_019_05m49s_to_05m59s.png",
+      "dialogue": [
+        {
+          "start_sec": 349.02,
+          "end_sec": 351.23,
+          "timestamp_str": "05:49",
+          "speaker": null,
+          "text": "of the Philippines adopted the K-12"
+        },
+        {
+          "start_sec": 351.24,
+          "end_sec": 353.09000000000003,
+          "timestamp_str": "05:51",
+          "speaker": null,
+          "text": "curriculum together with the mother"
+        },
+        {
+          "start_sec": 353.1,
+          "end_sec": 355.01,
+          "timestamp_str": "05:53",
+          "speaker": null,
+          "text": "tongue-based multilingual education"
+        },
+        {
+          "start_sec": 355.02,
+          "end_sec": 356.83,
+          "timestamp_str": "05:55",
+          "speaker": null,
+          "text": "under the language and art"
+        },
+        {
+          "start_sec": 356.84000000000003,
+          "end_sec": 358.57,
+          "timestamp_str": "05:56",
+          "speaker": null,
+          "text": "multi-literacies"
+        },
+        {
+          "start_sec": 358.58,
+          "end_sec": 361.67,
+          "timestamp_str": "05:58",
+          "speaker": null,
+          "text": "meanwhile Malaysia Indonesia Cambodia"
+        }
+      ],
+      "dialogue_text": "of the Philippines adopted the K-12 curriculum together with the mother tongue-based multilingual education under the language and art multi-literacies meanwhile Malaysia Indonesia Cambodia"
+    },
+    {
+      "slide_index": 20,
+      "start_time_str": "05:59",
+      "end_time_str": "06:04",
+      "duration_sec": 5.0,
+      "image_filename": "sample_meeting_frame_020_05m59s_to_06m04s.png",
+      "image_relative_path": "frames/sample_meeting_frame_020_05m59s_to_06m04s.png",
+      "dialogue": [
+        {
+          "start_sec": 361.68,
+          "end_sec": 364.79,
+          "timestamp_str": "06:01",
+          "speaker": null,
+          "text": "laws applied the communicative language"
+        }
+      ],
+      "dialogue_text": "laws applied the communicative language"
+    },
+    {
+      "slide_index": 21,
+      "start_time_str": "06:04",
+      "end_time_str": "06:20",
+      "duration_sec": 16.0,
+      "image_filename": "sample_meeting_frame_021_06m04s_to_06m20s.png",
+      "image_relative_path": "frames/sample_meeting_frame_021_06m04s_to_06m20s.png",
+      "dialogue": [
+        {
+          "start_sec": 364.8,
+          "end_sec": 367.85,
+          "timestamp_str": "06:04",
+          "speaker": null,
+          "text": "teaching approach moreover Indonesia"
+        },
+        {
+          "start_sec": 367.86,
+          "end_sec": 369.77,
+          "timestamp_str": "06:07",
+          "speaker": null,
+          "text": "also applied learner-centered and"
+        },
+        {
+          "start_sec": 369.78,
+          "end_sec": 372.59,
+          "timestamp_str": "06:09",
+          "speaker": null,
+          "text": "experience-based instruction lost used"
+        },
+        {
+          "start_sec": 372.6,
+          "end_sec": 375.409,
+          "timestamp_str": "06:12",
+          "speaker": null,
+          "text": "the ordering one methods and demolition"
+        },
+        {
+          "start_sec": 375.419,
+          "end_sec": 377.99,
+          "timestamp_str": "06:15",
+          "speaker": null,
+          "text": "suggests that the use of students native"
+        },
+        {
+          "start_sec": 378.0,
+          "end_sec": 380.39,
+          "timestamp_str": "06:18",
+          "speaker": null,
+          "text": "language as medium of instruction"
+        }
+      ],
+      "dialogue_text": "teaching approach moreover Indonesia also applied learner-centered and experience-based instruction lost used the ordering one methods and demolition suggests that the use of students native language as medium of instruction"
+    },
+    {
+      "slide_index": 22,
+      "start_time_str": "06:20",
+      "end_time_str": "06:25",
+      "duration_sec": 5.0,
+      "image_filename": "sample_meeting_frame_022_06m20s_to_06m25s.png",
+      "image_relative_path": "frames/sample_meeting_frame_022_06m20s_to_06m25s.png",
+      "dialogue": [
+        {
+          "start_sec": 380.4,
+          "end_sec": 383.029,
+          "timestamp_str": "06:20",
+          "speaker": null,
+          "text": "on the other hand Vietnam limited the"
+        },
+        {
+          "start_sec": 383.039,
+          "end_sec": 384.89,
+          "timestamp_str": "06:23",
+          "speaker": null,
+          "text": "words that must be learned in each grade"
+        },
+        {
+          "start_sec": 384.9,
+          "end_sec": 387.17,
+          "timestamp_str": "06:24",
+          "speaker": null,
+          "text": "its educational system focused on"
+        }
+      ],
+      "dialogue_text": "on the other hand Vietnam limited the words that must be learned in each grade its educational system focused on"
+    },
+    {
+      "slide_index": 23,
+      "start_time_str": "06:25",
+      "end_time_str": "06:40",
+      "duration_sec": 15.0,
+      "image_filename": "sample_meeting_frame_023_06m25s_to_06m40s.png",
+      "image_relative_path": "frames/sample_meeting_frame_023_06m25s_to_06m40s.png",
+      "dialogue": [
+        {
+          "start_sec": 387.18,
+          "end_sec": 390.23,
+          "timestamp_str": "06:27",
+          "speaker": null,
+          "text": "accuracy rather than fluency lastly the"
+        },
+        {
+          "start_sec": 390.24,
+          "end_sec": 392.33,
+          "timestamp_str": "06:30",
+          "speaker": null,
+          "text": "English curriculum of Myanmar was based"
+        },
+        {
+          "start_sec": 392.34000000000003,
+          "end_sec": 394.129,
+          "timestamp_str": "06:32",
+          "speaker": null,
+          "text": "on the common European framework of"
+        },
+        {
+          "start_sec": 394.139,
+          "end_sec": 396.95,
+          "timestamp_str": "06:34",
+          "speaker": null,
+          "text": "reference for languages to ensure that"
+        },
+        {
+          "start_sec": 396.96,
+          "end_sec": 398.51,
+          "timestamp_str": "06:36",
+          "speaker": null,
+          "text": "the English language was taught in"
+        },
+        {
+          "start_sec": 398.52,
+          "end_sec": 400.79,
+          "timestamp_str": "06:38",
+          "speaker": null,
+          "text": "context"
+        }
+      ],
+      "dialogue_text": "accuracy rather than fluency lastly the English curriculum of Myanmar was based on the common European framework of reference for languages to ensure that the English language was taught in context"
+    },
+    {
+      "slide_index": 24,
+      "start_time_str": "06:40",
+      "end_time_str": "06:45",
+      "duration_sec": 5.0,
+      "image_filename": "sample_meeting_frame_024_06m40s_to_06m45s.png",
+      "image_relative_path": "frames/sample_meeting_frame_024_06m40s_to_06m45s.png",
+      "dialogue": [
+        {
+          "start_sec": 400.8,
+          "end_sec": 403.37,
+          "timestamp_str": "06:40",
+          "speaker": null,
+          "text": "considering the data guarded the"
+        },
+        {
+          "start_sec": 403.38,
+          "end_sec": 405.23,
+          "timestamp_str": "06:43",
+          "speaker": null,
+          "text": "following significant features of"
+        }
+      ],
+      "dialogue_text": "considering the data guarded the following significant features of"
+    },
+    {
+      "slide_index": 25,
+      "start_time_str": "06:45",
+      "end_time_str": "07:17",
+      "duration_sec": 32.0,
+      "image_filename": "sample_meeting_frame_025_06m45s_to_07m17s.png",
+      "image_relative_path": "frames/sample_meeting_frame_025_06m45s_to_07m17s.png",
+      "dialogue": [
+        {
+          "start_sec": 405.24,
+          "end_sec": 408.59000000000003,
+          "timestamp_str": "06:45",
+          "speaker": null,
+          "text": "English were pointed out first the"
+        },
+        {
+          "start_sec": 408.6,
+          "end_sec": 410.87,
+          "timestamp_str": "06:48",
+          "speaker": null,
+          "text": "bilingual education system"
+        },
+        {
+          "start_sec": 410.88,
+          "end_sec": 413.87,
+          "timestamp_str": "06:50",
+          "speaker": null,
+          "text": "the data of 2010 Singapore census of"
+        },
+        {
+          "start_sec": 413.88,
+          "end_sec": 416.749,
+          "timestamp_str": "06:53",
+          "speaker": null,
+          "text": "population show that the percentage of"
+        },
+        {
+          "start_sec": 416.759,
+          "end_sec": 419.15,
+          "timestamp_str": "06:56",
+          "speaker": null,
+          "text": "residents who speak both English and"
+        },
+        {
+          "start_sec": 419.15999999999997,
+          "end_sec": 421.37,
+          "timestamp_str": "06:59",
+          "speaker": null,
+          "text": "other language and Singapore has"
+        },
+        {
+          "start_sec": 421.38,
+          "end_sec": 424.79,
+          "timestamp_str": "07:01",
+          "speaker": null,
+          "text": "increased by 13.5 percent compared to"
+        },
+        {
+          "start_sec": 424.8,
+          "end_sec": 427.43,
+          "timestamp_str": "07:04",
+          "speaker": null,
+          "text": "the previous data gathered in 2000 and"
+        },
+        {
+          "start_sec": 427.44,
+          "end_sec": 430.73,
+          "timestamp_str": "07:07",
+          "speaker": null,
+          "text": "2010. apparently language magazine"
+        },
+        {
+          "start_sec": 430.74,
+          "end_sec": 434.33,
+          "timestamp_str": "07:10",
+          "speaker": null,
+          "text": "reported that it even increased to 48.3"
+        },
+        {
+          "start_sec": 434.34,
+          "end_sec": 437.469,
+          "timestamp_str": "07:14",
+          "speaker": null,
+          "text": "percent in 2020."
+        }
+      ],
+      "dialogue_text": "English were pointed out first the bilingual education system the data of 2010 Singapore census of population show that the percentage of residents who speak both English and other language and Singapore has increased by 13.5 percent compared to the previous data gathered in 2000 and 2010. apparently language magazine reported that it even increased to 48.3 percent in 2020."
+    },
+    {
+      "slide_index": 26,
+      "start_time_str": "07:17",
+      "end_time_str": "07:22",
+      "duration_sec": 5.0,
+      "image_filename": "sample_meeting_frame_026_07m17s_to_07m22s.png",
+      "image_relative_path": "frames/sample_meeting_frame_026_07m17s_to_07m22s.png",
+      "dialogue": [
+        {
+          "start_sec": 437.479,
+          "end_sec": 440.51,
+          "timestamp_str": "07:17",
+          "speaker": null,
+          "text": "second the language and arts"
+        },
+        {
+          "start_sec": 440.52,
+          "end_sec": 442.129,
+          "timestamp_str": "07:20",
+          "speaker": null,
+          "text": "multiliteracy's curriculum in the"
+        }
+      ],
+      "dialogue_text": "second the language and arts multiliteracy's curriculum in the"
+    },
+    {
+      "slide_index": 27,
+      "start_time_str": "07:22",
+      "end_time_str": "07:38",
+      "duration_sec": 16.0,
+      "image_filename": "sample_meeting_frame_027_07m22s_to_07m38s.png",
+      "image_relative_path": "frames/sample_meeting_frame_027_07m22s_to_07m38s.png",
+      "dialogue": [
+        {
+          "start_sec": 442.139,
+          "end_sec": 444.29,
+          "timestamp_str": "07:22",
+          "speaker": null,
+          "text": "Philippines its Effectiveness is aligned"
+        },
+        {
+          "start_sec": 444.3,
+          "end_sec": 446.629,
+          "timestamp_str": "07:24",
+          "speaker": null,
+          "text": "with the Timeless concept such as John"
+        },
+        {
+          "start_sec": 446.639,
+          "end_sec": 449.39,
+          "timestamp_str": "07:26",
+          "speaker": null,
+          "text": "PJ's development learning theory since"
+        },
+        {
+          "start_sec": 449.4,
+          "end_sec": 451.07,
+          "timestamp_str": "07:29",
+          "speaker": null,
+          "text": "the curriculum applies the spiral"
+        },
+        {
+          "start_sec": 451.08,
+          "end_sec": 453.29,
+          "timestamp_str": "07:31",
+          "speaker": null,
+          "text": "progression way of learning the"
+        },
+        {
+          "start_sec": 453.3,
+          "end_sec": 455.029,
+          "timestamp_str": "07:33",
+          "speaker": null,
+          "text": "children's cognitive skills in language"
+        },
+        {
+          "start_sec": 455.039,
+          "end_sec": 459.29,
+          "timestamp_str": "07:35",
+          "speaker": null,
+          "text": "are being well developed"
+        }
+      ],
+      "dialogue_text": "Philippines its Effectiveness is aligned with the Timeless concept such as John PJ's development learning theory since the curriculum applies the spiral progression way of learning the children's cognitive skills in language are being well developed"
+    },
+    {
+      "slide_index": 28,
+      "start_time_str": "07:38",
+      "end_time_str": "07:43",
+      "duration_sec": 5.0,
+      "image_filename": "sample_meeting_frame_028_07m38s_to_07m43s.png",
+      "image_relative_path": "frames/sample_meeting_frame_028_07m38s_to_07m43s.png",
+      "dialogue": [
+        {
+          "start_sec": 459.3,
+          "end_sec": 462.05,
+          "timestamp_str": "07:39",
+          "speaker": null,
+          "text": "third City see how the activities in"
+        },
+        {
+          "start_sec": 462.06,
+          "end_sec": 463.79,
+          "timestamp_str": "07:42",
+          "speaker": null,
+          "text": "Malaysia will also proven to bring"
+        }
+      ],
+      "dialogue_text": "third City see how the activities in Malaysia will also proven to bring"
+    },
+    {
+      "slide_index": 29,
+      "start_time_str": "07:43",
+      "end_time_str": "07:53",
+      "duration_sec": 10.0,
+      "image_filename": "sample_meeting_frame_029_07m43s_to_07m53s.png",
+      "image_relative_path": "frames/sample_meeting_frame_029_07m43s_to_07m53s.png",
+      "dialogue": [
+        {
+          "start_sec": 463.8,
+          "end_sec": 465.71,
+          "timestamp_str": "07:43",
+          "speaker": null,
+          "text": "significant Improvement to students"
+        },
+        {
+          "start_sec": 465.72,
+          "end_sec": 467.57,
+          "timestamp_str": "07:45",
+          "speaker": null,
+          "text": "English speaking skills including"
+        },
+        {
+          "start_sec": 467.58,
+          "end_sec": 469.73,
+          "timestamp_str": "07:47",
+          "speaker": null,
+          "text": "grammar skills vocabulary skills"
+        },
+        {
+          "start_sec": 469.74,
+          "end_sec": 475.30899999999997,
+          "timestamp_str": "07:49",
+          "speaker": null,
+          "text": "pragmatic competence and fluency"
+        }
+      ],
+      "dialogue_text": "significant Improvement to students English speaking skills including grammar skills vocabulary skills pragmatic competence and fluency"
+    },
+    {
+      "slide_index": 30,
+      "start_time_str": "07:53",
+      "end_time_str": "07:58",
+      "duration_sec": 5.0,
+      "image_filename": "sample_meeting_frame_030_07m53s_to_07m58s.png",
+      "image_relative_path": "frames/sample_meeting_frame_030_07m53s_to_07m58s.png",
+      "dialogue": [
+        {
+          "start_sec": 475.319,
+          "end_sec": 478.189,
+          "timestamp_str": "07:55",
+          "speaker": null,
+          "text": "meanwhile some significant features from"
+        }
+      ],
+      "dialogue_text": "meanwhile some significant features from"
+    },
+    {
+      "slide_index": 31,
+      "start_time_str": "07:58",
+      "end_time_str": "08:03",
+      "duration_sec": 5.0,
+      "image_filename": "sample_meeting_frame_031_07m58s_to_08m03s.png",
+      "image_relative_path": "frames/sample_meeting_frame_031_07m58s_to_08m03s.png",
+      "dialogue": [
+        {
+          "start_sec": 478.199,
+          "end_sec": 480.05,
+          "timestamp_str": "07:58",
+          "speaker": null,
+          "text": "the other Southeast Asian countries"
+        },
+        {
+          "start_sec": 480.06,
+          "end_sec": 484.689,
+          "timestamp_str": "08:00",
+          "speaker": null,
+          "text": "include earlier English instruction"
+        }
+      ],
+      "dialogue_text": "the other Southeast Asian countries include earlier English instruction"
+    },
+    {
+      "slide_index": 32,
+      "start_time_str": "08:03",
+      "end_time_str": "08:08",
+      "duration_sec": 5.0,
+      "image_filename": "sample_meeting_frame_032_08m03s_to_08m08s.png",
+      "image_relative_path": "frames/sample_meeting_frame_032_08m03s_to_08m08s.png",
+      "dialogue": [
+        {
+          "start_sec": 484.699,
+          "end_sec": 487.07,
+          "timestamp_str": "08:04",
+          "speaker": null,
+          "text": "learner-centered and experience based"
+        },
+        {
+          "start_sec": 487.08,
+          "end_sec": 489.43,
+          "timestamp_str": "08:07",
+          "speaker": null,
+          "text": "instruction"
+        }
+      ],
+      "dialogue_text": "learner-centered and experience based instruction"
+    },
+    {
+      "slide_index": 33,
+      "start_time_str": "08:08",
+      "end_time_str": "08:13",
+      "duration_sec": 5.0,
+      "image_filename": "sample_meeting_frame_033_08m08s_to_08m13s.png",
+      "image_relative_path": "frames/sample_meeting_frame_033_08m08s_to_08m13s.png",
+      "dialogue": [
+        {
+          "start_sec": 489.44,
+          "end_sec": 493.37,
+          "timestamp_str": "08:09",
+          "speaker": null,
+          "text": "contextual teaching"
+        }
+      ],
+      "dialogue_text": "contextual teaching"
+    },
+    {
+      "slide_index": 34,
+      "start_time_str": "08:13",
+      "end_time_str": "08:18",
+      "duration_sec": 5.0,
+      "image_filename": "sample_meeting_frame_034_08m13s_to_08m18s.png",
+      "image_relative_path": "frames/sample_meeting_frame_034_08m13s_to_08m18s.png",
+      "dialogue": [
+        {
+          "start_sec": 493.38,
+          "end_sec": 496.01,
+          "timestamp_str": "08:13",
+          "speaker": null,
+          "text": "and provision of continuous training for"
+        },
+        {
+          "start_sec": 496.02,
+          "end_sec": 499.67,
+          "timestamp_str": "08:16",
+          "speaker": null,
+          "text": "English teachers"
+        }
+      ],
+      "dialogue_text": "and provision of continuous training for English teachers"
+    },
+    {
+      "slide_index": 35,
+      "start_time_str": "08:18",
+      "end_time_str": "08:23",
+      "duration_sec": 5.0,
+      "image_filename": "sample_meeting_frame_035_08m18s_to_08m23s.png",
+      "image_relative_path": "frames/sample_meeting_frame_035_08m18s_to_08m23s.png",
+      "dialogue": [
+        {
+          "start_sec": 499.68,
+          "end_sec": 502.73,
+          "timestamp_str": "08:19",
+          "speaker": null,
+          "text": "therefore in light of the findings of"
+        },
+        {
+          "start_sec": 502.74,
+          "end_sec": 505.249,
+          "timestamp_str": "08:22",
+          "speaker": null,
+          "text": "the study the following conclusions were"
+        }
+      ],
+      "dialogue_text": "therefore in light of the findings of the study the following conclusions were"
+    },
+    {
+      "slide_index": 36,
+      "start_time_str": "08:23",
+      "end_time_str": "09:04",
+      "duration_sec": 41.0,
+      "image_filename": "sample_meeting_frame_036_08m23s_to_09m04s.png",
+      "image_relative_path": "frames/sample_meeting_frame_036_08m23s_to_09m04s.png",
+      "dialogue": [
+        {
+          "start_sec": 505.259,
+          "end_sec": 506.27,
+          "timestamp_str": "08:25",
+          "speaker": null,
+          "text": "drawn"
+        },
+        {
+          "start_sec": 506.28,
+          "end_sec": 509.45,
+          "timestamp_str": "08:26",
+          "speaker": null,
+          "text": "in spite of differences South East Asian"
+        },
+        {
+          "start_sec": 509.46,
+          "end_sec": 512.029,
+          "timestamp_str": "08:29",
+          "speaker": null,
+          "text": "countries have one thing in common they"
+        },
+        {
+          "start_sec": 512.039,
+          "end_sec": 513.649,
+          "timestamp_str": "08:32",
+          "speaker": null,
+          "text": "continuously revise their English"
+        },
+        {
+          "start_sec": 513.659,
+          "end_sec": 516.469,
+          "timestamp_str": "08:33",
+          "speaker": null,
+          "text": "curricula for further development"
+        },
+        {
+          "start_sec": 516.479,
+          "end_sec": 519.469,
+          "timestamp_str": "08:36",
+          "speaker": null,
+          "text": "or Improvement the higher the number of"
+        },
+        {
+          "start_sec": 519.479,
+          "end_sec": 521.51,
+          "timestamp_str": "08:39",
+          "speaker": null,
+          "text": "teaching hours is the higher the"
+        },
+        {
+          "start_sec": 521.52,
+          "end_sec": 523.79,
+          "timestamp_str": "08:41",
+          "speaker": null,
+          "text": "possibility for students to achieve"
+        },
+        {
+          "start_sec": 523.8,
+          "end_sec": 525.67,
+          "timestamp_str": "08:43",
+          "speaker": null,
+          "text": "higher proficiency"
+        },
+        {
+          "start_sec": 525.68,
+          "end_sec": 528.41,
+          "timestamp_str": "08:45",
+          "speaker": null,
+          "text": "relatively countries in which English"
+        },
+        {
+          "start_sec": 528.42,
+          "end_sec": 530.81,
+          "timestamp_str": "08:48",
+          "speaker": null,
+          "text": "instruction starts at an earlier level"
+        },
+        {
+          "start_sec": 530.82,
+          "end_sec": 533.63,
+          "timestamp_str": "08:50",
+          "speaker": null,
+          "text": "also tend to yield students with higher"
+        },
+        {
+          "start_sec": 533.64,
+          "end_sec": 535.009,
+          "timestamp_str": "08:53",
+          "speaker": null,
+          "text": "proficiency"
+        },
+        {
+          "start_sec": 535.019,
+          "end_sec": 538.13,
+          "timestamp_str": "08:55",
+          "speaker": null,
+          "text": "however other significant factors such"
+        },
+        {
+          "start_sec": 538.14,
+          "end_sec": 540.47,
+          "timestamp_str": "08:58",
+          "speaker": null,
+          "text": "as countries Colonial history and"
+        },
+        {
+          "start_sec": 540.48,
+          "end_sec": 543.769,
+          "timestamp_str": "09:00",
+          "speaker": null,
+          "text": "teachers expertise May interfere"
+        },
+        {
+          "start_sec": 543.779,
+          "end_sec": 547.37,
+          "timestamp_str": "09:03",
+          "speaker": null,
+          "text": "third the countries standing in efepi"
+        }
+      ],
+      "dialogue_text": "drawn in spite of differences South East Asian countries have one thing in common they continuously revise their English curricula for further development or Improvement the higher the number of teaching hours is the higher the possibility for students to achieve higher proficiency relatively countries in which English instruction starts at an earlier level also tend to yield students with higher proficiency however other significant factors such as countries Colonial history and teachers expertise May interfere third the countries standing in efepi"
+    },
+    {
+      "slide_index": 37,
+      "start_time_str": "09:04",
+      "end_time_str": "09:09",
+      "duration_sec": 5.0,
+      "image_filename": "sample_meeting_frame_037_09m04s_to_09m09s.png",
+      "image_relative_path": "frames/sample_meeting_frame_037_09m04s_to_09m09s.png",
+      "dialogue": [
+        {
+          "start_sec": 547.38,
+          "end_sec": 550.25,
+          "timestamp_str": "09:07",
+          "speaker": null,
+          "text": "2021 can serve as a basis to help"
+        }
+      ],
+      "dialogue_text": "2021 can serve as a basis to help"
+    },
+    {
+      "slide_index": 38,
+      "start_time_str": "09:09",
+      "end_time_str": "09:20",
+      "duration_sec": 11.0,
+      "image_filename": "sample_meeting_frame_038_09m09s_to_09m20s.png",
+      "image_relative_path": "frames/sample_meeting_frame_038_09m09s_to_09m20s.png",
+      "dialogue": [
+        {
+          "start_sec": 550.26,
+          "end_sec": 553.55,
+          "timestamp_str": "09:10",
+          "speaker": null,
+          "text": "identify these significant features of"
+        },
+        {
+          "start_sec": 553.56,
+          "end_sec": 555.769,
+          "timestamp_str": "09:13",
+          "speaker": null,
+          "text": "each curriculum which could be adopted"
+        },
+        {
+          "start_sec": 555.779,
+          "end_sec": 558.11,
+          "timestamp_str": "09:15",
+          "speaker": null,
+          "text": "by other countries to Foster their"
+        },
+        {
+          "start_sec": 558.12,
+          "end_sec": 561.41,
+          "timestamp_str": "09:18",
+          "speaker": null,
+          "text": "English education"
+        }
+      ],
+      "dialogue_text": "identify these significant features of each curriculum which could be adopted by other countries to Foster their English education"
+    },
+    {
+      "slide_index": 39,
+      "start_time_str": "09:20",
+      "end_time_str": "09:25",
+      "duration_sec": 5.0,
+      "image_filename": "sample_meeting_frame_039_09m20s_to_09m25s.png",
+      "image_relative_path": "frames/sample_meeting_frame_039_09m20s_to_09m25s.png",
+      "dialogue": [
+        {
+          "start_sec": 561.42,
+          "end_sec": 563.93,
+          "timestamp_str": "09:21",
+          "speaker": null,
+          "text": "the researchers have also constructed"
+        },
+        {
+          "start_sec": 563.94,
+          "end_sec": 565.79,
+          "timestamp_str": "09:23",
+          "speaker": null,
+          "text": "the following recommendations"
+        }
+      ],
+      "dialogue_text": "the researchers have also constructed the following recommendations"
+    },
+    {
+      "slide_index": 40,
+      "start_time_str": "09:25",
+      "end_time_str": "09:35",
+      "duration_sec": 10.0,
+      "image_filename": "sample_meeting_frame_040_09m25s_to_09m35s.png",
+      "image_relative_path": "frames/sample_meeting_frame_040_09m25s_to_09m35s.png",
+      "dialogue": [
+        {
+          "start_sec": 565.8,
+          "end_sec": 567.29,
+          "timestamp_str": "09:25",
+          "speaker": null,
+          "text": "firstly"
+        },
+        {
+          "start_sec": 567.3,
+          "end_sec": 569.15,
+          "timestamp_str": "09:27",
+          "speaker": null,
+          "text": "Southeast Asian countries May"
+        },
+        {
+          "start_sec": 569.16,
+          "end_sec": 572.75,
+          "timestamp_str": "09:29",
+          "speaker": null,
+          "text": "participate really in on EF Epi for"
+        },
+        {
+          "start_sec": 572.76,
+          "end_sec": 574.79,
+          "timestamp_str": "09:32",
+          "speaker": null,
+          "text": "continuous monitoring of improvement"
+        },
+        {
+          "start_sec": 574.8,
+          "end_sec": 577.85,
+          "timestamp_str": "09:34",
+          "speaker": null,
+          "text": "next countries with lower proficiency"
+        }
+      ],
+      "dialogue_text": "firstly Southeast Asian countries May participate really in on EF Epi for continuous monitoring of improvement next countries with lower proficiency"
+    },
+    {
+      "slide_index": 41,
+      "start_time_str": "09:35",
+      "end_time_str": "09:40",
+      "duration_sec": 5.0,
+      "image_filename": "sample_meeting_frame_041_09m35s_to_09m40s.png",
+      "image_relative_path": "frames/sample_meeting_frame_041_09m35s_to_09m40s.png",
+      "dialogue": [
+        {
+          "start_sec": 577.86,
+          "end_sec": 580.009,
+          "timestamp_str": "09:37",
+          "speaker": null,
+          "text": "May recognize pictures of their existing"
+        }
+      ],
+      "dialogue_text": "May recognize pictures of their existing"
+    },
+    {
+      "slide_index": 42,
+      "start_time_str": "09:40",
+      "end_time_str": "09:45",
+      "duration_sec": 5.0,
+      "image_filename": "sample_meeting_frame_042_09m40s_to_09m45s.png",
+      "image_relative_path": "frames/sample_meeting_frame_042_09m40s_to_09m45s.png",
+      "dialogue": [
+        {
+          "start_sec": 580.019,
+          "end_sec": 582.47,
+          "timestamp_str": "09:40",
+          "speaker": null,
+          "text": "curricula that can be improved"
+        },
+        {
+          "start_sec": 582.48,
+          "end_sec": 585.47,
+          "timestamp_str": "09:42",
+          "speaker": null,
+          "text": "finally countries with lower proficiency"
+        }
+      ],
+      "dialogue_text": "curricula that can be improved finally countries with lower proficiency"
+    },
+    {
+      "slide_index": 43,
+      "start_time_str": "09:45",
+      "end_time_str": "09:54",
+      "duration_sec": 9.0,
+      "image_filename": "sample_meeting_frame_043_09m45s_to_09m54s.png",
+      "image_relative_path": "frames/sample_meeting_frame_043_09m45s_to_09m54s.png",
+      "dialogue": [
+        {
+          "start_sec": 585.48,
+          "end_sec": 587.57,
+          "timestamp_str": "09:45",
+          "speaker": null,
+          "text": "may consider adopting the significant"
+        },
+        {
+          "start_sec": 587.58,
+          "end_sec": 590.03,
+          "timestamp_str": "09:47",
+          "speaker": null,
+          "text": "features of English curricula in"
+        },
+        {
+          "start_sec": 590.04,
+          "end_sec": 591.53,
+          "timestamp_str": "09:50",
+          "speaker": null,
+          "text": "Southeast Asian countries which"
+        },
+        {
+          "start_sec": 591.54,
+          "end_sec": 593.329,
+          "timestamp_str": "09:51",
+          "speaker": null,
+          "text": "performed well"
+        },
+        {
+          "start_sec": 593.3389999999999,
+          "end_sec": 596.449,
+          "timestamp_str": "09:53",
+          "speaker": null,
+          "text": "and that concludes our presentation we"
+        }
+      ],
+      "dialogue_text": "may consider adopting the significant features of English curricula in Southeast Asian countries which performed well and that concludes our presentation we"
+    },
+    {
+      "slide_index": 44,
+      "start_time_str": "09:54",
+      "end_time_str": "09:59",
+      "duration_sec": 5.0,
+      "image_filename": "sample_meeting_frame_044_09m54s_to_09m59s.png",
+      "image_relative_path": "frames/sample_meeting_frame_044_09m54s_to_09m59s.png",
+      "dialogue": [
+        {
+          "start_sec": 596.4590000000001,
+          "end_sec": 598.43,
+          "timestamp_str": "09:56",
+          "speaker": null,
+          "text": "believe that our research will hold a"
+        },
+        {
+          "start_sec": 598.44,
+          "end_sec": 600.65,
+          "timestamp_str": "09:58",
+          "speaker": null,
+          "text": "huge contribution in fostering English"
+        }
+      ],
+      "dialogue_text": "believe that our research will hold a huge contribution in fostering English"
+    },
+    {
+      "slide_index": 45,
+      "start_time_str": "09:59",
+      "end_time_str": "10:06",
+      "duration_sec": 7.5,
+      "image_filename": "sample_meeting_frame_045_09m59s_to_10m06s.png",
+      "image_relative_path": "frames/sample_meeting_frame_045_09m59s_to_10m06s.png",
+      "dialogue": [
+        {
+          "start_sec": 600.66,
+          "end_sec": 603.07,
+          "timestamp_str": "10:00",
+          "speaker": null,
+          "text": "language education throughout the world"
+        },
+        {
+          "start_sec": 603.08,
+          "end_sec": 607.76,
+          "timestamp_str": "10:03",
+          "speaker": null,
+          "text": "once again thank you very much"
+        }
+      ],
+      "dialogue_text": "language education throughout the world once again thank you very much"
+    }
+  ]
+}
